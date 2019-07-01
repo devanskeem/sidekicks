@@ -8,9 +8,11 @@ export default class BrowseEvents extends Component {
       event: [],
       image: ''
     }
+  }
+  
 
     componentDidMount(){
-      .get('')
+      axios.get('')
       .then(res => {
         this.setState =({
           event: res.data.event
@@ -52,4 +54,4 @@ export default class BrowseEvents extends Component {
       </div>
     )
   }
-}
+
