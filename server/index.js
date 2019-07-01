@@ -35,10 +35,10 @@ app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
 
 //message endpoints
 
-//app.get('/messages/:event-id', event_ctrl.getMessagesByEvent) response: [{messageId: int, user: {user}, content: string, timestamp}]
-//app.delete('/messages/delete/:id', event_ctrl.deleteMessageById) response: status code
-//app.delete('/messages/delete/:event-id', event_ctrl.deleteMessageByEvent) response: status code
-//app.post('/messages/add', event_ctrl.addMessage) response: newly created {message}
+app.get('/messages/:event-id', event_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
+app.delete('/messages/delete/:id', event_ctrl.deleteMessageById) //response: status code
+app.delete('/messages/delete/:event-id', event_ctrl.deleteMessageByEvent) //response: status code
+app.post('/messages/add', event_ctrl.addMessage) //response: newly created {message}
 
 //user endpoints 
 
