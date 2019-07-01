@@ -4,6 +4,10 @@ const massive = require('massive')
 const session = require('express-session')
 const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 const app = express()
+const event_ctrl = require ('./controllers/event_controller')
+const auth_ctrl = require ('./controllers/auth_controller')
+const message_ctrl = require ('./controllers/message_controller')
+const user_ctrl = require ('./controllers/user_controller')
 
 app.use(express.json())
 app.use(session({
@@ -23,10 +27,11 @@ massive(CONNECTION_STRING).then(db => {
 
 //event endpoints
 
-//app.get('/events/all', event_ctrl.getAllEvents) response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
-//app.put('/events/update/:id, event_ctrl.updateEvent) response: updated {event}
-//app.delete('/events/delete/:id', event_ctrl.deleteEvent) response: status code
-//app.post('/events/add', event_ctrl.addEvent) response: newly created {event}
+app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
+app.get('/events/:id', event_ctrl.getEventsById)
+app.put('/events/update/:id', event_ctrl.updateEvent) 
+app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
+app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
 
 //message endpoints
 
