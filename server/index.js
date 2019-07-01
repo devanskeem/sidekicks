@@ -42,12 +42,12 @@ app.post('/messages/add', event_ctrl.addMessage) //response: newly created {mess
 
 //user endpoints 
 
-//app.get('/users/all', user_ctrl.getAllUsers) response: [{userId: int, username: string, firstName: string, lastName: string, age: integer, location: string, gender: string, image: string,bio: string}]
-//app.get('/users/current', user_ctrl.getCurrentUser)
-//app.get('/users/:id', user_ctrl.getUserById) response: {user} 
-//app.get('/users/:event-id', user_ctrl.getUserByEvent) response: [{user}]
-//app.post('/users/add', user_ctrl.addUser) response newly create {user}
-//app.put('/users/update' user_ctrl.updateUser)
+app.get('/users/all', user_ctrl.getAllUsers) //response: [{userId: int, username: string, firstName: string, lastName: string, age: integer, location: string, gender: string, image: string,bio: string}]
+app.get('/users/current', user_ctrl.getCurrentUser)
+app.get('/users/:id', user_ctrl.getUserById) //response: {user} 
+app.get('/users/:event-id', user_ctrl.getUserByEvent) //response: [{user}]
+app.post('/users/add', user_ctrl.addUser) //response newly create {user}
+app.put('/users/update', user_ctrl.updateUser)
 
 
 //auth endpoint
