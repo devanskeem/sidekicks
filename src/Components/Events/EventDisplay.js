@@ -26,7 +26,7 @@ import {
           <Image > <img src={this.props.________}/> </Image>
         <FormHeader>
           <FormTitle>{this.props.________}</FormTitle>
-          <text>Posted by {this.props.________}</text>
+          <text>Hosted by {this.props.________}</text>
           <text>{this.props.________}</text>
           <text>{this.props.________}</text>
           <text>{this.props.________}</text>
