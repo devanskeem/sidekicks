@@ -8,6 +8,7 @@ import EventDisplay from './Components/Events/EventDisplay'
 import Messages from './Components/Profile/Messages'
 import UserProfile from './Components/Profile/UserProfile'
 import TipsTricks from './Components/TipsTricks'
+import EditProfile from './Components/Profile/EditProfile'
 
 export default (
     <Switch>
@@ -17,5 +18,6 @@ export default (
         <Route path='/messages' component={Messages}/>
         <Route path='/userprofile' component={UserProfile}/>
         <Route path='/tipstricks' components={TipsTricks}/>
+        <Route path='/editprofile' components={EditProfile}/>
     </Switch>
 )
