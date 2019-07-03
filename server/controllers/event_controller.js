@@ -18,7 +18,14 @@ module.exports = {
             })
             .catch(err => res.status(500).send(console.log(err)));
     },
+    getEventsByUser: (req, res) => {
+        const db = req.app.get('db')
 
+        db.get_events_by_user().then(event => {
+            res.status(200).send(event)
+                .catch(err => res.status(500).send(console.log(err)));
+        })
+    },
     addEvent: (req, res) => {
         const db = req.app.get('db');
         const {
