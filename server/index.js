@@ -47,7 +47,6 @@ passport.use(
         // extraParams.id_token has the JSON Web Token
         // profile has all the information from the user
         console.log('profile', profile)
-        console.log('accessToken', accessToken)
         // if (!profile.emails[0] && !profile.email[0].value) return done(null);
         // const email = profile.emails[0].value;
         // const db = app.get("db");

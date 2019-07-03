@@ -32,12 +32,12 @@ export default class BrowseEvents extends Component {
     handleButtonClick = () => {
     
   
-      axios
-        .get(url)
-        .then(response => this.setState({ recipes: response.data.recipes }));
+      // axios
+      //   .get(url)
+      //   .then(response => this.setState({ recipes: response.data.recipes }));
     };
   
-  }
+  
 
   render() {
     const eventDisplay = this.state.event.map((event, i) => {
@@ -48,10 +48,12 @@ export default class BrowseEvents extends Component {
 
     return (
       <div>
+      This is the Browse events component
       <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events"/>
       <button onClick={this.handleButtonClick}>Submit</button>
       {eventDisplay}
       </div>
     )
   }
+}
 
