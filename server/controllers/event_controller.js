@@ -29,19 +29,27 @@ module.exports = {
     addEvent: (req, res) => {
         const db = req.app.get('db');
         const {
-            eventTitle,  
-            eventDescription, 
-            eventHost,
-            attendees
+            name,  
+            description, 
+            host,
+            category,
+            total_people,
+            cost, 
+            location,
+            image
         } = req.body
-
-        db.create_event({
-            eventTitle,  
-            eventDescription, 
-            eventHost,
-            attendees
+        console.log('image', image)
+        const event = db.create_event({
+            name,  
+            description, 
+            host,
+            category,
+            total_people,
+            cost, 
+            location,
+            image
         })
-        .then(event => {
+        .then(() => {
             res.status(200).send(event)
         })
         .catch(err  => res.status(500).send

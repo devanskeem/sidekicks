@@ -15,7 +15,7 @@ import MyEvents from './Components/Events/MyEvents'
 
 export default (
     <Switch>
-        <Route exact path='/' component={LoginForm}/>
+        {/* <Route exact path='/' component={App}/> */}
         <Route path='/browseevents' component={BrowseEvents}/>
         <Route path='/eventdisplay' component={EventDisplay}/>
         <Route path='/messages' component={Messages}/>
