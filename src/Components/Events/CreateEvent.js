@@ -22,36 +22,40 @@ class CreateEvent extends React.Component {
     constructor() {
         super()
         this.state = {
-            title: '',
+            name: '',
             description: '',
-            condition: '',
-            missingpieces: '',
-            extrainfo: '',
+            category: '',
+            totalpeople: '',
+            cost: '',
+            location: '',
+            image: '',
             url: ''
         }
     }
     handleToyPost = (e) => {
         e.preventDefault()
-        const toyobj = {
-            title: this.state.title,
+        const eventobj = {
+            name: this.state.name,
             description: this.state.description,
-            condition: this.state.condition,
-            missingpieces: parseInt(this.state.missingpieces),
-            extrainfo: this.state.extrainfo,
-            url: this.state.url,
-            user_id: this.props.user.user_id
+            category: this.state.category,
+            totalpeople: this.state.totalpeople,
+            cost: parseInt(this.state.cost),
+            location: this.state.location,
+            image: this.state.image,
+            url: this.props.url
             }
-        axios.post('/api/toy', toyobj).then((res) => {
+        axios.post('/api/toy', eventobj).then((res) => {
             console.log(toyobj)
             this.props.history.push('/browsetoys')
             this.props.updateToy(res.data)
         })
         this.setState({
-            title: '',
+            name: '',
             description: '',
-            condition: '',
-            missingpieces: '',
-            extrainfo: '',
+            category: '',
+            cost: '',
+            location: '',
+            image: '',
             url: ''
         })
         this.props.id && this.props.history.push('/details')
@@ -76,9 +80,9 @@ class CreateEvent extends React.Component {
                         <li>
                     <input
                         type='text'
-                        placeholder='title'
-                        name='title'
-                        value={this.state.title}
+                        placeholder='name'
+                        name='name'
+                        value={this.state.name}
                         onChange={this.handlePostFormInfoUpdate}
                     />
                     </li>
@@ -94,27 +98,45 @@ class CreateEvent extends React.Component {
                     <li>
                     <input
                         type='text'
-                        placeholder='condition'
-                        name='condition'
-                        value={this.state.condition}
+                        placeholder='category'
+                        name='category'
+                        value={this.state.category}
+                        onChange={this.handlePostFormInfoUpdate}
+                    />
+                    </li>
+                    <li>
+                    <input
+                        type='integer'
+                        placeholder='total people'
+                        name='totalpeople'
+                        value={this.state.totalpeople}
+                        onChange={this.handlePostFormInfoUpdate}
+                    />
+                    </li>
+                    <li>
+                    <input
+                        type='integer'
+                        placeholder='cost'
+                        name='cost'
+                        value={this.state.cost}
                         onChange={this.handlePostFormInfoUpdate}
                     />
                     </li>
                     <li>
                     <input
                         type='text'
-                        placeholder='missing pieces'
-                        name='missingpieces'
-                        value={this.state.missingpieces}
+                        placeholder='location'
+                        name='location'
+                        value={this.state.location}
                         onChange={this.handlePostFormInfoUpdate}
                     />
                     </li>
                     <li>
                     <input
                         type='text'
-                        placeholder='extra information'
-                        name='extrainfo'
-                        value={this.state.extrainfo}
+                        placeholder='image'
+                        name='image'
+                        value={this.state.image}
                         onChange={this.handlePostFormInfoUpdate}
                     />
                     </li>
@@ -129,7 +151,7 @@ class CreateEvent extends React.Component {
                     </li>
                     <li>
                     {/* </Input> */}
-                    <button onClick={this.handleToyPost}>Post Toy</button>
+                    <button onClick={this.handle_______}>create event</button>
                     </li>
                     </ul>
                 </form>
@@ -146,5 +168,5 @@ function mapStateToProps(reduxState) {
   
   export default withRouter (connect(
     mapStateToProps,
-    { updateToy }
+    { updateEvent }
   )(CreateEvent))
