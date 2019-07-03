@@ -10,6 +10,7 @@ const auth_ctrl = require ('./controllers/auth_controller')
 const message_ctrl = require ('./controllers/message_controller')
 const user_ctrl = require ('./controllers/user_controller')
 
+
 const app = express()
 app.use(express.json())
 app.use(session({
@@ -92,7 +93,7 @@ app.put('/events/update/:id', event_ctrl.updateEvent)
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
 
-//message endpoints getImageArray{img1, img2, img3} = 
+//message endpoints 
 
 app.get('/messages/:event-id', message_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
 app.delete('/messages/delete/:id', message_ctrl.deleteMessageById) //response: status code
