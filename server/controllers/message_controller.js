@@ -1,5 +1,5 @@
 module.exports = {
-    getMessagesByEvents: (req, res) => {
+    getMessagesByEvent: (req, res) => {
         const db = req.app.get([id])
         db.get_messages_by_events().then(events => res.status(200).send(events))
         .catch(err => res.status(500).send(console.log(err)));
