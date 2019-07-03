@@ -44,6 +44,6 @@
   "devDependencies": {
     "cypress": "^3.3.2"
   },
-  "proxy":"http://localhost:3333",
+  "proxy": "http://localhost:3333",
   "main": "server/index.js"
 }
