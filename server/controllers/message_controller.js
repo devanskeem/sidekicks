@@ -5,7 +5,7 @@ module.exports = {
         .catch(err => res.status(500).send(console.log(err)));
     },
 
-    deleteMessagesById: (req, res) => {
+    deleteMessageById: (req, res) => {
         const db = req.app.get('db');
         const { id } = req.params;
 
@@ -20,5 +20,10 @@ module.exports = {
         
         db.delete_messages_by_event({id}).then(() => res.status(200).send())
         .catch(() => res.status(500).send());
+    },
+    addMessage: (req, res) => {
+        const db = req.app.get('db')
+        const {name, description} = req.body;
+        db.add_message({name, description}).then(event => res.status(200).send(event))
     }
 }

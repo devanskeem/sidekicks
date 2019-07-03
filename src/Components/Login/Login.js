@@ -11,10 +11,10 @@ export default function Login() {
           className="login animated slideOutDown"
           href="http://localhost:3333/auth/google"
         >
-          Login
+          Auth0 Login
         </a>
         <div>
-          <a href="http://localhost:3333/auth/logout">Logout!@</a>
+          <a href="http://localhost:3333/auth/logout">Logout</a>
         </div>
       </div>
     </div>
