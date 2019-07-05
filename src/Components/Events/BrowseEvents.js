@@ -50,7 +50,7 @@ class BrowseEvents extends Component {
           border: '1px solid black',
           width: '200px'
           }}>
-          <img src={event.image} alt=""/>
+          <img src={event.image}/>
           <p>{event.name}</p>
           <p>{event.description}</p>
           <p>{event.location}</p>

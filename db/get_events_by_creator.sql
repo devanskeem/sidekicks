@@ -1,2 +1,2 @@
 select * from events
-where creator_id === ${user_id}
+where creator_id = ${creator_id}

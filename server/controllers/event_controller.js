@@ -18,14 +18,14 @@ module.exports = {
         console.log(event)
         res.status(200).send(event)
     },
-    getEventsByUser: async (req, res) => {
+    getEventsByCreator: async (req, res) => {
         const db = req.app.get('db')
-        const {user_id} = req.params
-        const events = await db.get_events_by_user({user_id}).then(() => {
-            res.status(200).send(events)
-        })
+        let {creator_id} = req.params
+        creator_id = +creator_id
+        const events = await db.get_events_by_creator({creator_id})
+        res.status(200).send(events)
     },
-    addEvent: (req, res) => {
+    addEvent: async (req, res) => {
         const db = req.app.get('db');
         const {
             name,  
@@ -35,9 +35,10 @@ module.exports = {
             total_people,
             cost, 
             location,
-            image
+            image,
+            user_id
         } = req.body
-        const event = db.create_event({
+        const event = await db.create_event({
             name,  
             description, 
             host,
@@ -45,13 +46,11 @@ module.exports = {
             total_people,
             cost, 
             location,
-            image
+            image,
+            creator_id: user_id
         })
-        .then(() => {
-            res.status(200).send(event)
-        })
-        .catch(err  => res.status(500).send
-        (console.log(err)));
+        res.status(200).send(event)
+    
     },
     updateEvent: (req, res) =>{
         const db = req.app.get('db');
