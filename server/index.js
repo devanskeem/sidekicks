@@ -43,14 +43,6 @@ passport.use(
         passReqToCallback: true
     },
     function (req, accessToken, refreshToken, extraParams, profile, done) {
-        // accessToken is the token to call Auth0 API (not needed in the most cases)
-        // extraParams.id_token has the JSON Web Token
-        // profile has all the information from the user
-        console.log('profile', profile)
-        // if (!profile.emails[0] && !profile.email[0].value) return done(null);
-        // const email = profile.emails[0].value;
-        // const db = app.get("db");
-        // // find the user in our db
         const db = req.app.get('db');
 
         
@@ -87,11 +79,11 @@ massive(CONNECTION_STRING).then(db => {
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
 
 app.get('/events/:id', event_ctrl.getEventById)
-app.get('/events/user', event_ctrl.getEventsByUser)
+app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
-
+app.get('events/creator/:user_id', event_ctrl.getEventsByCreator)
 //message endpoints 
 
 app.get('/messages/:event-id', message_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
