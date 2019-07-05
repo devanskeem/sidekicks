@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
-import LoginForm from './Components/Login/LoginForm'
+import Landing from './Components/Landing/Landing'
 import BrowseEvents from './Components/Events/BrowseEvents'
 import EventDisplay from './Components/Events/EventDisplay'
 import Messages from './Components/Profile/Messages'
@@ -15,7 +15,7 @@ import MyEvents from './Components/Events/MyEvents'
 
 export default (
     <Switch>
-        {/* <Route exact path='/' component={App}/> */}
+        <Route exact path='/' component={Landing}/>
         <Route path='/browseevents' component={BrowseEvents}/>
         <Route path='/eventdisplay' component={EventDisplay}/>
         <Route path='/messages' component={Messages}/>
