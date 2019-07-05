@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Form2, Join, Loginbtn, Test, Test2,Title, Phrase} from './Styled'
+import { Form, Form2, Join, Loginbtn, Test, Test2,Title, Phrase, P} from './Styled'
 
 
 
@@ -8,6 +8,7 @@ export default class Landing extends Component {
   render() {
     return (
       <Test >
+        
         <Test2>
           <Title>sidekicks</Title>
           <Phrase>social event organizer</Phrase>
@@ -15,14 +16,14 @@ export default class Landing extends Component {
         <Form>
           <Form2>
           <Join>sign up</Join>
-          <p>
+          <P>
             Already a Member? 
             <Loginbtn>
               <a href="http://localhost:3333/auth/google">
                 Login
               </a>
             </Loginbtn>
-          </p>
+          </P>
           </Form2>
         </Form>
       </Test>
