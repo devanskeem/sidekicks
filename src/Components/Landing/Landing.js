@@ -15,7 +15,14 @@ export default class Landing extends Component {
         <Form>
           <Form2>
           <Join>sign up</Join>
-          <p>Already a Member? <Loginbtn>Log in</Loginbtn></p>
+          <p>
+            Already a Member? 
+            <Loginbtn>
+              <a href="http://localhost:3333/auth/google">
+                Login
+              </a>
+            </Loginbtn>
+          </p>
           </Form2>
         </Form>
       </Test>
