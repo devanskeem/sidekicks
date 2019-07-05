@@ -21,11 +21,8 @@ app.use(session({
         max_age: 60 * 60 * 1000
     }
 }))
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });app.use(passport.initialize());
+
+app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(function (user, done) {
     done(null, user);
@@ -80,15 +77,13 @@ massive(CONNECTION_STRING).then(db => {
 //event endpoints
 
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
-
 app.get('/events/:id', event_ctrl.getEventById)
-app.get('/events/user', event_ctrl.getEventsByUser)
+app.get('/events/creator/:creator_id', event_ctrl.getEventsByCreator)
 app.put('/events/update/:id', event_ctrl.updateEvent)
-app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
+// app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
-app.get('events/creator/:user_id', event_ctrl.getEventsByCreator)
 //message endpoints 
 
 app.get('/messages/:event-id', message_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
