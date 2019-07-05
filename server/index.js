@@ -21,8 +21,11 @@ app.use(session({
         max_age: 60 * 60 * 1000
     }
 }))
-
-app.use(passport.initialize());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(function (user, done) {
     done(null, user);
