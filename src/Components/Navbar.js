@@ -13,9 +13,6 @@ function Navbar(props) {
         <Link className="myevents" to="/myevents">
           My Events
         </Link>
-        <Link className="addevents" to="/createevent">
-          Add Events
-        </Link>
         <Link className="messages" to="/messages">
           Messages
         </Link>
