@@ -3,6 +3,7 @@ import './App.css';
 import Landing from './Components/Landing/Landing'
 import {HashRouter} from 'react-router-dom'
 import router from './router'
+import Navbar from './Components/Navbar';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <HashRouter>
         {router}
+        <Navbar/>
       </HashRouter>
     </div>
   );
