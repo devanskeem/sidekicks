@@ -21,7 +21,8 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "reset-css": "^4.0.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "webkit": "0.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
