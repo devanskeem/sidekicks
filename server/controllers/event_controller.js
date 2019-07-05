@@ -9,30 +9,19 @@ module.exports = {
             res.status(500).send('Events not found')
         }
     },
-
-    getEventById: (req, res) => {
+    getEventById: async (req, res) => {
         const db = req.app.get('db');
         let { id } = req.params;
         id = +id;
 
-        const event = db.get_event_by_id({id})
-            .then(() => {
-            res.status(200).send(event)
-            })
-            .catch(err => res.status(500).send(console.log(err)));
+        const event =  await db.get_event_by_id({id})
+        console.log(event)
+        res.status(200).send(event)
     },
-    getEventsByUser: (req, res) => {
-        const db = req.app.get('db')
-
-        db.get_events_by_user().then(event => {
-            res.status(200).send(event)
-                .catch(err => res.status(500).send(console.log(err)));
-        })
-    },
-    getEventsByCreator: (req, res) => {
+    getEventsByUser: async (req, res) => {
         const db = req.app.get('db')
         const {user_id} = req.params
-        const events = db.get_events_by_creator({user_id}).then(() => {
+        const events = await db.get_events_by_user({user_id}).then(() => {
             res.status(200).send(events)
         })
     },

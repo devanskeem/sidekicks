@@ -21,11 +21,8 @@ app.use(session({
         max_age: 60 * 60 * 1000
     }
 }))
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });app.use(passport.initialize());
+
+app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(function (user, done) {
     done(null, user);
@@ -80,9 +77,8 @@ massive(CONNECTION_STRING).then(db => {
 //event endpoints
 
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
-
 app.get('/events/:id', event_ctrl.getEventById)
-app.get('/events/user', event_ctrl.getEventsByUser)
+app.get('/events/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent)
 app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
