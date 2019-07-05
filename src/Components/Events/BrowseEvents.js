@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {updateUser} from '../../redux/reducer'
+import {connect} from 'react-redux'
 import axios from 'axios'
 
-export default class BrowseEvents extends Component {
-  constructor(){
-    super()
+class BrowseEvents extends Component {
+  constructor(props){
+    super(props)
     this.state = {
       events: []
     }
@@ -12,10 +14,13 @@ export default class BrowseEvents extends Component {
 
     componentDidMount(){
       axios.get('events/all').then(res => {
-        console.log(res.data)
         this.setState({
           events: res.data
         })
+      })
+
+      axios.get('/auth/user').then(res => {
+        console.log('props', this.props)
       })
     }
     handleInputChange = e => {
@@ -65,3 +70,9 @@ export default class BrowseEvents extends Component {
   }
 }
 
+const mapStateToProps = (reduxState) => {
+  return reduxState
+}
+
+
+export default connect(mapStateToProps)(BrowseEvents)

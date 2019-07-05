@@ -108,8 +108,7 @@ app.put('/users/update', user_ctrl.updateUser)
 
 //auth endpoint
 
-app.get("/auth/callback", passport.authenticate("auth0", {successRedirect: `${process.env.FRONT_END_URL}`}), (req, res) => {
-    console.log(req.user)
+app.get("/auth/callback", passport.authenticate("auth0", {successRedirect: `${process.env.FRONT_END_URL}/browseevents`}), (req, res) => {
     res.send(req.user)
 });
 
@@ -128,7 +127,7 @@ app.get("/auth/user", (req, res) => {
 app.get("/auth/logout", (req, res) => {
     req.logOut();
     // this is a built in method in passport that kills the session and resets the user property
-    res.redirect(`${process.env.FRONT_END_URL}`);
+    res.redirect(`${process.env.FRONT_END_URL}/`);
 });
 
 app.listen(SERVER_PORT, () => {
