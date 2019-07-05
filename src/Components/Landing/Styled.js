@@ -1,13 +1,20 @@
 import 'reset-css'
 import styled from 'styled-components'
 import {device} from '../mediaQueries'
-import img from '../../Assets/Chill2.jpg'
+import img from '../../Assets/Hiking.jpg'
 
 export const Test = styled.body`
-width: 100%
-height: 100vh
-background: purple;
+width: 100%;
+height: 100vh;
+@media ${device.mobileS}{
+background url(${img});
+background-repeat: no-repeat;
+background-size:cover;
+}
 `
+
+
+
 
 export const Test2= styled.div`
 display: flex;
@@ -38,7 +45,6 @@ display: flex;
 @media ${device.mobileS}{
 width: 100%;
 height: 30vh;
-background: aqua;
 position: absolute;
 bottom: 0px;
 align-items:flex-end
@@ -59,7 +65,7 @@ border: none;
 
 export const Form2 = styled.div`
 @media ${device.mobileS}{
-background: blue;
+
 width: 100%;
 height: 50%;
 display: flex;
@@ -75,3 +81,8 @@ background-color: transparent
 outline: none; 
 }
 `
+export const P = styled.p`
+@media ${device.mobileS}{
+  color: white;
+  padding-top: 10px;
+}`
