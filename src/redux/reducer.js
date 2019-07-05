@@ -3,18 +3,9 @@ import axios from 'axios'
 const initialState = {
     user: {},
     events:[]
-    // username: "",
-    // firstName: "",
-    // lastName: "",
-    // age: null,
-    // location: "",
-    // gender: "",
-    // image: "",
-    // bio: "",
-
 }
 
-const GET_USER = "GET_USER";
+const UPDATE_USER = "UPDATE_USER";
 const UPDATE_EVENTS = "UPDATE_EVENTS";
 // const UPDATE_USER = "UPDATE_USER";
 // const UPDATE_USERNAME = "UPDATE_USERNAME";
@@ -28,25 +19,9 @@ const UPDATE_EVENTS = "UPDATE_EVENTS";
 // const UPDATE_CURRENTUSER = "UPDATE_CURRENTUSER";
 // const UPDATE_MESSAGE = "UPDATE_MESSAGE";
 
-export default function reducer(state = initialState, action) {
-
-    switch(action.type) {
-        case GET_USER:
-            return { ...state, user: action.payload};
-        default:
-            return state
-
-        case UPDATE_EVENTS:
-            return Object.assign({}, state, {events: payload});
-        default: 
-            return state
-       
-    };
-}
-
-export function getUser(user) {
+export function updateUser(user) {
     return {
-        type: GET_USER,
+        type: UPDATE_USER,
         payload: user
 
     }
@@ -58,3 +33,16 @@ export function updateEvents(events) {
         payload: events
     };
 }
+
+export default function reducer(state = initialState, action) {
+    switch(action.type) {
+        case UPDATE_USER:
+            return { ...state, user: action.payload}
+        case UPDATE_EVENTS:
+            return { ...state, events: action.payload}
+        default: 
+            return state
+    };
+}
+
+

@@ -109,7 +109,6 @@ app.put('/users/update', user_ctrl.updateUser)
 //auth endpoint
 
 app.get("/auth/callback", passport.authenticate("auth0", {successRedirect: `${process.env.FRONT_END_URL}`}), (req, res) => {
-    console.log(req.user)
     res.send(req.user)
 });
 

@@ -5,9 +5,7 @@ export default function Login() {
   return (
     <div>
       <div className="reset loginmain">
-        
         <div>
-          <a href="http://localhost:3333/auth/logout">Logout</a>
         </div>
       </div>
     </div>
