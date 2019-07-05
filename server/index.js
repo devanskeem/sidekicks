@@ -82,6 +82,8 @@ massive(CONNECTION_STRING).then(db => {
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
 
 app.get('/events/:id', event_ctrl.getEventById)
+app.get('/events/user', event_ctrl.getEventsByUser)
+app.put('/events/update/:id', event_ctrl.updateEvent)
 app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
