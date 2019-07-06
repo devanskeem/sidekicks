@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Form2, Join, Loginbtn, Test, Test2,Title, Phrase, P} from './Styled'
+import { Form, Form2, Join, Loginbtn, Test, Test2,Title, Phrase, P, Signup} from './Styled'
 
 
 
@@ -15,13 +15,15 @@ export default class Landing extends Component {
         </Test2>
         <Form>
           <Form2>
-          <Join>sign up</Join>
+          <Join>
+          <Signup href="http://localhost:3333/auth/google">sign up</Signup>
+          </Join>
           <P>
-            Already a Member? 
+            Already Signup Member? 
             <Loginbtn>
-              <a href="http://localhost:3333/auth/google">
+              <Signup href="http://localhost:3333/auth/google">
                 Login
-              </a>
+              </Signup>
             </Loginbtn>
           </P>
           </Form2>
