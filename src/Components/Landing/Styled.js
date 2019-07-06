@@ -46,16 +46,26 @@ export const Hero = styled.div`
   display:none;
 }
 @media ${device.tablet}{
-  background: url(${hero});
+  background-image: url(${hero});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 95%;
   width: 100%;
-  height: 500px;
+  height: 600px;
   display: flex;
-
-
+  align-items: flex-end;
 }`
 
+export const HeroBody = styled.div`
+@media ${device.tablet}{
+width: 100%;
+height: 40%;
+display:flex;
+align-items: flex-end;
+justify-content: center;
+}`
+
+export const LearnMore = styled.button`
+`
 
 
 // =====HERO END========
@@ -144,5 +154,8 @@ export const P = styled.p`
   @media ${device.mobileS} {
     color: white;
     padding-top: 10px;
+  }
+  @media ${device.tablet}{
+    display: none;
   }
 `;

@@ -14,6 +14,8 @@ import {
   Nav,
   Hero,
   TitleDiv,
+  HeroBody,
+  LearnMore
 } from "./Styled";
 
 export default class Landing extends Component {
@@ -26,7 +28,9 @@ export default class Landing extends Component {
           </TitleDiv> 
         </Nav>
         <Hero>
-          Hello
+          <HeroBody>
+            <LearnMore>learn more</LearnMore>
+          </HeroBody>
         </Hero>
         <Test2>
           <Title>sidekicks</Title>
