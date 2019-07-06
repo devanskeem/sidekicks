@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {device} from '../mediaQueries'
 import img from '../../Assets/Hiking.jpg'
 
+
 export const Test = styled.body`
 width: 100%;
 height: 100vh;
@@ -10,10 +11,11 @@ height: 100vh;
 background url(${img});
 background-repeat: no-repeat;
 background-size:cover;
+font-family:'Sansita'
 }
 `
 
-
+ 
 
 
 export const Test2= styled.div`
@@ -30,6 +32,7 @@ export const Title = styled.h1`
 @media ${device.mobileS}{
 font-size: 36px;
 font-weight: bold;
+color:  #fd5f00;
 }
 `
 
@@ -37,6 +40,7 @@ export const Phrase = styled.h3`
 @media ${device.mobileS}{
 font-size: 24px;
 font-weight: bold;
+color:  #fd5f00;
 }
 `
 
@@ -62,6 +66,11 @@ text-transform: uppercase;
 border: none;
 }
 `
+export const Signup = styled.a`
+color: white;
+text-decoration: none;
+text-transform: capitalize;
+`
 
 export const Form2 = styled.div`
 @media ${device.mobileS}{
@@ -83,6 +92,6 @@ outline: none;
 `
 export const P = styled.p`
 @media ${device.mobileS}{
-  color: white;
-  padding-top: 10px;
+color: white;
+padding-top: 10px;
 }`
