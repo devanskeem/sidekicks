@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import arrow from '../../Assets/Arrow.png'
 
 import {
   Form,
@@ -14,6 +15,7 @@ import {
   Hero,
   HeroBody,
   LearnMore,
+  Arrow
 } from "./Styled";
 
 export default class Landing extends Component {
@@ -22,7 +24,8 @@ export default class Landing extends Component {
       <Test>
         <Hero>
           <HeroBody>
-            <LearnMore>join now</LearnMore>
+            <LearnMore href="http://localhost:3333/auth/google">join now</LearnMore>
+            <Arrow src={arrow}></Arrow>
             
           </HeroBody>
         </Hero>
