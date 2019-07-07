@@ -11,25 +11,19 @@ import {
   Phrase,
   P,
   Signup,
-  Nav,
   Hero,
-  TitleDiv,
   HeroBody,
-  LearnMore
+  LearnMore,
 } from "./Styled";
 
 export default class Landing extends Component {
   render() {
     return (
       <Test>
-        <Nav>
-          <TitleDiv>
-            <Title>sidekicks</Title>
-          </TitleDiv> 
-        </Nav>
         <Hero>
           <HeroBody>
-            <LearnMore>learn more</LearnMore>
+            <LearnMore>join now</LearnMore>
+            
           </HeroBody>
         </Hero>
         <Test2>
