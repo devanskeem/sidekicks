@@ -63,7 +63,13 @@ export const LearnMore = styled.button`
     cursor: pointer;
   }
 `;
-// transition-duration: 0.4s;
+
+export const Arrow = styled.img`
+
+max-width: 100%;
+height: auto;
+margin-top: 50px;
+`
 
 // =====HERO END========
 
