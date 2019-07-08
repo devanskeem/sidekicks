@@ -3,6 +3,7 @@ import {updateUser, updateEvents} from '../../redux/reducer'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
+
 class BrowseEvents extends Component {
     componentDidMount(){
       axios.get('events/all').then(res => {
