@@ -31,10 +31,28 @@ export const Hero = styled.div`
     width: 100%;
     height: 600px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+  
   }
-`;
+`
+export const LogoDiv = styled.div`
+height: 55%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 
+`
+export const Logo = styled.img`
+height: 85%
+margin-top: 100px;
+`
+export const LogoP = styled.p`
+color: white;
+font-size: 26px
+margin-bottom: 80px;
+`
 export const HeroBody = styled.div`
   @media ${device.tablet} {
     width: 100%;
@@ -47,7 +65,7 @@ export const HeroBody = styled.div`
 `;
 
 export const LearnMore = styled.button`
-  width: 202.14px;
+  width: 180px;
   height: 64px;
   background-color: transparent;
   letter-spacing: 0.2em;
@@ -56,7 +74,6 @@ export const LearnMore = styled.button`
   text-transform: uppercase;
   border: 2px solid #fff;
   color: white;
-  z-index: 20;
   :hover {
     background: white;
     color: black;
@@ -65,13 +82,29 @@ export const LearnMore = styled.button`
 `;
 
 export const Arrow = styled.img`
-
 max-width: 100%;
 height: auto;
-margin-top: 50px;
+margin-top: 40px;
+`
+export const HeroB = styled.div`
+width: 100%;
+height: 50px;
+background: black;
+
 `
 
 // =====HERO END========
+
+// ========DESKTOP BODY========
+export const DesktopBody = styled.div`
+@media ${device.mobileS}{
+  display: none;
+}
+@media ${device.tablet}{
+background: purple
+width: 100%;
+height: 100vh;
+}`
 
 // =====Parent Div that contains Title Headers======
 export const Test2 = styled.div`
@@ -99,7 +132,8 @@ export const Phrase = styled.h3`
   @media ${device.mobileS} {
     font-size: 24px;
     font-weight: bold;
-    color: #fd5f00;
+    color: 
+    ;
   }
 `;
 // End Styling for Title Headers=====

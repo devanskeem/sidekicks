@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import arrow from '../../Assets/Arrow.png'
+import logo from '../../Assets/Sidekicks2.png'
+
 
 import {
   Form,
@@ -15,20 +17,37 @@ import {
   Hero,
   HeroBody,
   LearnMore,
-  Arrow
+  Arrow,
+  HeroB,
+  // Nav
+  LogoDiv,
+  Logo,
+  LogoP,
+  DesktopBody
 } from "./Styled";
 
 export default class Landing extends Component {
   render() {
     return (
       <Test>
+        {/* <Nav>
+          <TitleDiv>
+            <h1>sidkicks</h1>
+          </TitleDiv>
+        </Nav> */}
         <Hero>
+          <LogoDiv>
+            <Logo src={logo}></Logo>
+            <LogoP>Social Event Organizer</LogoP>
+          </LogoDiv>
           <HeroBody>
             <LearnMore href="http://localhost:3333/auth/google">join now</LearnMore>
             <Arrow src={arrow}></Arrow>
-            
           </HeroBody>
         </Hero>
+        <DesktopBody>
+          Hello
+        </DesktopBody>
         <Test2>
           <Title>sidekicks</Title>
           <Phrase>social event organizer</Phrase>
