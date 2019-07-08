@@ -50,8 +50,10 @@ passport.use(
         db.users.find({auth_id: profile.id})
             .then(users => {
                 if (users.length === 0){
+                    console.log('profile', profile.picture)
                     return db.users.insert({
                         display_name: profile.displayName,
+                        image: profile.picture,
                         auth_id: profile.id
                     })
                 }
