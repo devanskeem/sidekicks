@@ -66,17 +66,17 @@ export class CreateEvent extends Component {
             <div>
                 <input className='input' name='name' placeholder="name" onChange={(e) => {this.handleChange(e)}} />
                 <input className="input" name='description' placeholder="description" onChange={(e) =>{this.handleChange(e)}} />
-                <input className='input' placeholder="host" onChange={(e) => 
+                <input className='input' name="host" onChange={(e) => 
                 {updateHost(e.target.value)  }}/>
-                <input className='input' placeholder="category" onChange={(e) => 
+                <input className='input' name="category" onChange={(e) => 
                 {updateCategory(e.target.value)}}/>
-                <input className='input' placeholder="total_people" onChange={(e) => 
+                <input className='input' name="total_people" onChange={(e) => 
                 {updateTotalPeople(e.target.value)}}/>
-                <input className='input' placeholder="cost" onChange={(e) => 
+                <input className='input' name="cost" onChange={(e) => 
                 {updateCost(e.target)  }}/>
-                <input className='input' placeholder="location" onChange={(e) => 
+                <input className='input' name="location" onChange={(e) => 
                 {updateCost(e.target.value)  }}/>
-                <input className='input' placeholder="image" onChange={(e) => 
+                <input className='input' name="image" onChange={(e) => 
                 {updateImage(e.target.value)  }}/>
                 <button className="create-btn" onClick={this.handleAddEvent}>Create</button>
             </div>
