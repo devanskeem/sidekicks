@@ -1,6 +1,7 @@
+//Events
 describe('Look at events', () => {
     it ('should have active events', () => {
-        cy.visit('/events')
+        cy.visit('/events/all')
         cy.get('div').should('have.class')
         cy.get('button:last').click()
     })
@@ -8,28 +9,44 @@ describe('Look at events', () => {
 })
 
 describe('Create an event', () => {
-    it('View events', () => {
-        cy.visit('/search')
-        cy.url().should('include', '/events')
+    it('View my event', () => {
+        cy.visit('/events/add')
+        cy.get('create-btn').click
+        cy.url().should('include', '/addEvent')
     })
 })
 
 describe('view an event', () => {
     it('view created event', () => {
-        cy.get().click()
-        cy.get("placeholder-div.nav a:nth-child(2)")
-        cy.url("placeholder").should('include', '/myevents')
+        cy.visit('/users/getUsersByEvent/')
+        cy.get("").click()
+        cy.url().should('include', '/myevents')
     })
 })
     it('should have an "Add an Event" button', () => {
         cy.get("placeholder_button").should('exist').click()
     })
-    it('Should type in the event name and description', () => {
-        cy.get('input.input').type("placeholder event name and description").should('exist').click()
+    it('Should type in the event name', () => {
+        cy.get('input.input').type('Pot Luck').should ('have.value', 'Pot Luck')('exist')
+        cy.get(div.input).click()
+
     })
-    it('Should have Save (placeholder) button', () => {
-        cy.get('button.save(placeholder)').should('have.length', numplacholder)
+
+    it('Should type in the description', () => {
+        cy.get('input.input').type('').should('have.value', placeholder)(exist)
+        cy.get(div.input).click()
     })
-    it('should have a ')
+
+    it('Should type in the host',() => {
+        cy.get(input.input).type('').should('have.value', placeholder)(exist)
+        cy.get(div.input).click()
+    })
+
+    
+
+    it('Should have Save (create) button', () => {
+        cy.get('button.save(create').should('have.length', 3)
+    })
+
 
 
