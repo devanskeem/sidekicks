@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 export class UserProfile extends Component {
 
-
   render() {
     return (
       <Test>
