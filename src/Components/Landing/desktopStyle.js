@@ -27,6 +27,10 @@ export const Hero = styled.div`
   flex-direction: column;
 }
 `
+export const Logo = styled.img`
+margin-bottom: -70px;
+height: 355px;
+`
 export const DBar = styled.div`
 @media ${device.tablet}{
   background: #0F1721;
@@ -45,15 +49,12 @@ export const TitleDiv = styled.div`
 }
 `
 
-export const Title = styled.h1`
-color: black;
-font-size: 46px;
-transform: rotate(-15deg);
-margin-bottom: 40px;
-`
+
 
 export const Phrase = styled.h1`
 font-size: 38px;
+color: #fff;
+text-transform: uppercase;
 `
 
 export const JoinDiv = styled.div`
@@ -75,10 +76,10 @@ letter-spacing: 0.2em;
 font-size: 13px;
 font-weight: 400;
 text-transform: uppercase;
-border: 2px solid #fff;
+border: 2px solid #fd5f00;
 color: white;
 :hover {
-background: white;
+background: #fd5f00;
   color: black;
   cursor: pointer;
 
@@ -124,10 +125,18 @@ flex-direction: column;
 justify-content: center;
 `
 
-export const Img = styled.img`
-width: 50px;
-height: 50px;
+export const Img = styled.div`
 margin-left: 130px;
+svg {
+  color: white;
+  width: 50px;
+  height: 50px;
+  :hover {
+    color: red;
+  }
+}
+
+}
 `
 export const H2 = styled.h2`
 text-transform: uppercase;
