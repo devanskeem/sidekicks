@@ -12,43 +12,40 @@ function Navbar(props) {
         <Nav>
           
           <Button>
-            <Icon.Home>
+            
             <Link to="/browseevents">
-            Events
+          <Icon.Home />
         </Link>
-        </Icon.Home>
         </Button>
+
         <Button>
-        <Icon.Calendar>
+        
           <Link to="/myevents">
-            My Events
+           <Icon.Calendar />
         </Link>
-        </Icon.Calendar>
         </Button>
         
         <Button>
-          <Icon.PlusSquare>
+          
         <Link to="/createevent">
-          Add Events
+        <Icon.PlusSquare />
         </Link>
-        </Icon.PlusSquare>
         </Button>
 
         <Button>
-          <Icon.MessageSquare>
+          
           <Link to="/messages">
-            Messages
+          <Icon.MessageSquare />
         </Link>
-        </Icon.MessageSquare>
         </Button>
 
         <Button>
-          <Icon.User>
+          
           <Link to="/userprofile">
-            Profile
+          <Icon.User />
         </Link>
-        </Icon.User>
         </Button>
+
         </Nav>
       </Test>
     );
