@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Test, Test2 } from './Styled'
 import axios from 'axios'
 export class UserProfile extends Component {
+
+  
   componentDidMount() {
     axios.get('/auth/user').then(res => {
       console.log('res.data', res.data)
