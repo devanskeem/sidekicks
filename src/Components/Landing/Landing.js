@@ -18,9 +18,9 @@ export default class App extends Component {
           <MP>social event organizer</MP>
         </MBody1>
         <MBody2>
-          <MSignUp href="http://localhost:3333/auth/google">Sign up</MSignUp>
+          <MSignUp > <a  href="http://localhost:3333/auth/google">Sign up</a> </MSignUp>
           <MP2>
-            Already a member?<MLoginBtn href="http://localhost:3333/auth/google">Log in</MLoginBtn>
+            Already a member?<MLoginBtn> <a href="http://localhost:3333/auth/google">Log in</a></MLoginBtn>
           </MP2>
         </MBody2>
       </Body>
@@ -33,7 +33,7 @@ export default class App extends Component {
             <Phrase>social event organizer</Phrase>
           </TitleDiv>
           <JoinDiv>
-            <JoinBtn href="http://localhost:3333/auth/google">Join Now</JoinBtn>
+            <JoinBtn><a  href="http://localhost:3333/auth/google">Join Now</a></JoinBtn>
             <Arrow src={arrow}/>
           </JoinDiv>
         </Hero>
