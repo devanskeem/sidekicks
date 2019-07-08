@@ -79,7 +79,7 @@ massive(CONNECTION_STRING).then(db => {
 //event endpoints
 
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
-app.get('/events/:id', event_ctrl.getEventById)
+app.get('/event/byid/:id', event_ctrl.getEventById)
 app.get('/events/creator/:creator_id', event_ctrl.getEventsByCreator)
 app.put('/events/update/:id', event_ctrl.updateEvent)
 // app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
@@ -98,8 +98,10 @@ app.post('/messages/add', message_ctrl.addMessage) //response: newly created {me
 app.get('/users/all', user_ctrl.getAllUsers) //response: [{userId: int, username: string, firstName: string, lastName: string, age: integer, location: string, gender: string, image: string,bio: string}]
 app.get('/users/current', user_ctrl.getCurrentUser)
 app.get('/users/:id', user_ctrl.getUserById) //response: {user} 
-app.get('/users/:event-id', user_ctrl.getUserByEvent) //response: [{user}]
-app.post('/users/add', user_ctrl.addUser) //response newly create {user}
+
+app.get('/users/byevent/:id', user_ctrl.getUsersByEvent) //response: [{user}]
+
+app.post('/users/add', user_ctrl.addUser) //resonse newly create {user}
 app.put('/users/update', user_ctrl.updateUser)
 
 
