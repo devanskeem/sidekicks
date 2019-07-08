@@ -98,8 +98,8 @@ app.post('/messages/add', message_ctrl.addMessage) //response: newly created {me
 app.get('/users/all', user_ctrl.getAllUsers) //response: [{userId: int, username: string, firstName: string, lastName: string, age: integer, location: string, gender: string, image: string,bio: string}]
 app.get('/users/current', user_ctrl.getCurrentUser)
 app.get('/users/:id', user_ctrl.getUserById) //response: {user} 
-app.get('/users/:event-id', user_ctrl.getUserByEvent) //response: [{user}]
-app.post('/users/add', user_ctrl.addUser) //response newly create {user}
+app.get('/users/:event-id', user_ctrl.getUsersByEvent) //response: [{user}]
+app.post('/users/add', user_ctrl.addUser) //resonse newly create {user}
 app.put('/users/update', user_ctrl.updateUser)
 
 
