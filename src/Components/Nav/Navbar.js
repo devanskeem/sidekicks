@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Nav, Test } from './Styled'
+import { Nav, Test, Button, Home } from './Styled'
+import * as Icon from 'react-feather'
+
 function Navbar(props) {
   console.log(props);
   if (props.location.pathname === "/") return null;
@@ -8,21 +10,45 @@ function Navbar(props) {
     return (
       <Test>
         <Nav>
-          <Link className="browse" to="/browseevents">
+          
+          <Button>
+            <Icon.Home>
+            <Link to="/browseevents">
             Events
         </Link>
-          <Link className="myevents" to="/myevents">
+        </Icon.Home>
+        </Button>
+        <Button>
+        <Icon.Calendar>
+          <Link to="/myevents">
             My Events
         </Link>
-        <Link className="addevents" to="/createevent">
+        </Icon.Calendar>
+        </Button>
+        
+        <Button>
+          <Icon.PlusSquare>
+        <Link to="/createevent">
           Add Events
         </Link>
-          <Link className="messages" to="/messages">
+        </Icon.PlusSquare>
+        </Button>
+
+        <Button>
+          <Icon.MessageSquare>
+          <Link to="/messages">
             Messages
         </Link>
-          <Link className="userprofile" to="/userprofile">
+        </Icon.MessageSquare>
+        </Button>
+
+        <Button>
+          <Icon.User>
+          <Link to="/userprofile">
             Profile
         </Link>
+        </Icon.User>
+        </Button>
         </Nav>
       </Test>
     );
