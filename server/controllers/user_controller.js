@@ -9,11 +9,8 @@ module.exports =  {
     
     getCurrentUser: (req, res) => {
         const db = req.app.get('db')
-        const { id } = req.params;
-    
-        db.get_current_user(id).then(user => res.status(200).send(user))
-            .catch(() => res.status(500).send(console.log(err)));
-        },
+        console.log(req.session)
+    },
     
     
     getUserById: (req, res) => {

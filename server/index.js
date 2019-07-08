@@ -43,14 +43,6 @@ passport.use(
         passReqToCallback: true
     },
     function (req, accessToken, refreshToken, extraParams, profile, done) {
-        // accessToken is the token to call Auth0 API (not needed in the most cases)
-        // extraParams.id_token has the JSON Web Token
-        // profile has all the information from the user
-        console.log('profile', profile)
-        // if (!profile.emails[0] && !profile.email[0].value) return done(null);
-        // const email = profile.emails[0].value;
-        // const db = app.get("db");
-        // // find the user in our db
         const db = req.app.get('db');
 
         
@@ -85,13 +77,13 @@ massive(CONNECTION_STRING).then(db => {
 //event endpoints
 
 app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
-
 app.get('/events/:id', event_ctrl.getEventById)
-app.get('/events/user', event_ctrl.getEventsByUser)
+app.get('/events/creator/:creator_id', event_ctrl.getEventsByCreator)
+app.put('/events/update/:id', event_ctrl.updateEvent)
+// app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
-
 //message endpoints 
 
 app.get('/messages/:event-id', message_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
@@ -111,8 +103,7 @@ app.put('/users/update', user_ctrl.updateUser)
 
 //auth endpoint
 
-app.get("/auth/callback", passport.authenticate("auth0", {successRedirect: `${process.env.FRONT_END_URL}`}), (req, res) => {
-    console.log(req.user)
+app.get("/auth/callback", passport.authenticate("auth0", {successRedirect: `${process.env.FRONT_END_URL}/browseevents`}), (req, res) => {
     res.send(req.user)
 });
 
@@ -131,7 +122,7 @@ app.get("/auth/user", (req, res) => {
 app.get("/auth/logout", (req, res) => {
     req.logOut();
     // this is a built in method in passport that kills the session and resets the user property
-    res.redirect(`${process.env.FRONT_END_URL}`);
+    res.redirect(`${process.env.FRONT_END_URL}/`);
 });
 
 app.listen(SERVER_PORT, () => {

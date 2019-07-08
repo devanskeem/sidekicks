@@ -1,32 +1,31 @@
 module.exports = {
-    getAllEvents: (req, res) => {
+    getAllEvents: async (req, res) => {
         const db = req.app.get('db')
-        db.get_all_events().then(events =>
-            res.status(200).send(events))
-            .catch(err => res.status(500).send(console.log(err)));
+        try {
+            const allEvents = await db.get_all_events()
+            res.status(200).send(allEvents)
+        }
+        catch {
+            res.status(500).send('Events not found')
+        }
     },
-
-    getEventById: (req, res) => {
+    getEventById: async (req, res) => {
         const db = req.app.get('db');
         let { id } = req.params;
         id = +id;
 
-        db.get_event_by_id({id})
-            .then(event => {
-            
-            res.status(200).send(event)
-            })
-            .catch(err => res.status(500).send(console.log(err)));
+        const event =  await db.get_event_by_id({id})
+        console.log(event)
+        res.status(200).send(event)
     },
-    getEventsByUser: (req, res) => {
+    getEventsByCreator: async (req, res) => {
         const db = req.app.get('db')
-
-        db.get_events_by_user().then(event => {
-            res.status(200).send(event)
-                .catch(err => res.status(500).send(console.log(err)));
-        })
+        let {creator_id} = req.params
+        creator_id = +creator_id
+        const events = await db.get_events_by_creator({creator_id})
+        res.status(200).send(events)
     },
-    addEvent: (req, res) => {
+    addEvent: async (req, res) => {
         const db = req.app.get('db');
         const {
             name,  
@@ -36,10 +35,10 @@ module.exports = {
             total_people,
             cost, 
             location,
-            image
+            image,
+            user_id
         } = req.body
-        console.log('image', image)
-        const event = db.create_event({
+        const event = await db.create_event({
             name,  
             description, 
             host,
@@ -47,13 +46,11 @@ module.exports = {
             total_people,
             cost, 
             location,
-            image
+            image,
+            creator_id: user_id
         })
-        .then(() => {
-            res.status(200).send(event)
-        })
-        .catch(err  => res.status(500).send
-        (console.log(err)));
+        res.status(200).send(event)
+    
     },
     updateEvent: (req, res) =>{
         const db = req.app.get('db');
@@ -75,5 +72,4 @@ module.exports = {
             .then(() => res.status(200).send())
             .catch(() => res.status(500).send());
     }
-
 }

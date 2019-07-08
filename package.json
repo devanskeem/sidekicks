@@ -5,6 +5,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.0.1",
     "axios": "^0.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -15,11 +16,17 @@
     "passport-google-oauth20": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "reset-css": "^4.0.1",
+<<<<<<< HEAD
     "styled-components": "^4.3.2"
+=======
+    "styled-components": "^4.3.2",
+    "webkit": "0.0.0"
+>>>>>>> 03db6d2bebb7805838fa4ca22d63fd068b569313
   },
   "scripts": {
     "start": "react-scripts start",
