@@ -2,7 +2,7 @@ import "reset-css";
 import styled from "styled-components";
 import { device } from "../mediaQueries";
 import img from "../../Assets/Hiking.jpg";
-import hero from '../../Assets/Gathering.jpg';
+import hero from "../../Assets/Gathering.jpg";
 
 // ====Body of Landing Page ====
 export const Test = styled.body`
@@ -18,55 +18,58 @@ export const Test = styled.body`
     background: none;
   }
 `;
-// ====Navbar=======
-export const Nav = styled.nav`
-@media ${device.mobileS}{
-  display:none;
-  @media ${device.tablet}{
-    display: flex;
-    background: black;
-    width: 100%;
-    height: 65px;
-  }`
-
-export const TitleDiv = styled.div`
-background: purple;
-width: 35%;
-height: 65px;
-display: flex;
-align-items: center;
-justify-content: center;
-`
-
-// Navbar End =============
 
 // =======HERO Start=========
 export const Hero = styled.div`
-@media ${device.mobileS}{
-  display:none;
-}
-@media ${device.tablet}{
-  background-image: url(${hero});
-  background-repeat: no-repeat;
-  background-size: 100% 95%;
-  width: 100%;
-  height: 600px;
-  display: flex;
-  align-items: flex-end;
-}`
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    background-image: url(${hero});
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: flex-end;
+  }
+`;
 
 export const HeroBody = styled.div`
-@media ${device.tablet}{
-width: 100%;
-height: 40%;
-display:flex;
-align-items: flex-end;
-justify-content: center;
-}`
+  @media ${device.tablet} {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 export const LearnMore = styled.button`
-`
+  width: 202.14px;
+  height: 64px;
+  background-color: transparent;
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  color: white;
+  z-index: 20;
+  :hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+  }
+`;
 
+export const Arrow = styled.img`
+
+max-width: 100%;
+height: auto;
+margin-top: 50px;
+`
 
 // =====HERO END========
 
@@ -123,7 +126,7 @@ export const Join = styled.button`
     text-transform: uppercase;
     border: none;
   }
-  @media ${device.tablet}{
+  @media ${device.tablet} {
     display: none;
   }
 `;
@@ -155,7 +158,7 @@ export const P = styled.p`
     color: white;
     padding-top: 10px;
   }
-  @media ${device.tablet}{
+  @media ${device.tablet} {
     display: none;
   }
 `;

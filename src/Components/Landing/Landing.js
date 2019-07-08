@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import arrow from '../../Assets/Arrow.png'
 
 import {
   Form,
@@ -11,25 +12,21 @@ import {
   Phrase,
   P,
   Signup,
-  Nav,
   Hero,
-  TitleDiv,
   HeroBody,
-  LearnMore
+  LearnMore,
+  Arrow
 } from "./Styled";
 
 export default class Landing extends Component {
   render() {
     return (
       <Test>
-        <Nav>
-          <TitleDiv>
-            <Title>sidekicks</Title>
-          </TitleDiv> 
-        </Nav>
         <Hero>
           <HeroBody>
-            <LearnMore>learn more</LearnMore>
+            <LearnMore href="http://localhost:3333/auth/google">join now</LearnMore>
+            <Arrow src={arrow}></Arrow>
+            
           </HeroBody>
         </Hero>
         <Test2>
