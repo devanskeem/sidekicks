@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Body, MBody1, MTitle, MP, MBody2, MSignUp, MP2, MLoginBtn } from "./mobileStyle.";
+import { Body, MBody1, MTitle, MP, MBody2, MSignUp, MP2, MLoginBtn, A } from "./mobileStyle.";
 import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, DBar4, Img, H2, P, Logo} from './desktopStyle'
 import arrow from '../../Assets/Arrow.png'
 import mg from '../../Assets/magnifier.png'
@@ -18,9 +18,9 @@ export default class App extends Component {
           <MP>social event organizer</MP>
         </MBody1>
         <MBody2>
-          <MSignUp > <a  href="http://localhost:3333/auth/google">Sign up</a> </MSignUp>
+          <MSignUp > <A  href="http://localhost:3333/auth/google">Sign up</A> </MSignUp>
           <MP2>
-            Already a member?<MLoginBtn> <a href="http://localhost:3333/auth/google">Log in</a></MLoginBtn>
+            Already a member?<MLoginBtn> <A href="http://localhost:3333/auth/google">Log in</A></MLoginBtn>
           </MP2>
         </MBody2>
       </Body>
@@ -33,7 +33,7 @@ export default class App extends Component {
             <Phrase>social event organizer</Phrase>
           </TitleDiv>
           <JoinDiv>
-            <JoinBtn><a  href="http://localhost:3333/auth/google">Join Now</a></JoinBtn>
+            <JoinBtn><A  href="http://localhost:3333/auth/google">Join Now</A></JoinBtn>
             <Arrow src={arrow}/>
           </JoinDiv>
         </Hero>
