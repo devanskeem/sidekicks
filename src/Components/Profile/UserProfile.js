@@ -4,17 +4,6 @@ import {connect} from 'react-redux'
 import axios from 'axios'
 export class UserProfile extends Component {
 
-<<<<<<< HEAD
-  
-  componentDidMount() {
-    axios.get('/auth/user').then(res => {
-      console.log('res.data', res.data)
-    })
-    
-  }
-=======
->>>>>>> master
-
   render() {
     return (
       <Test>

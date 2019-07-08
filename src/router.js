@@ -13,6 +13,7 @@ import CreateEvent from './Components/Events/CreateEvent'
 import MyEvents from './Components/Events/MyEvents'
 
 
+
 export default (
     <Switch>
         <Route exact path='/' component={Landing}/>
