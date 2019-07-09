@@ -2,42 +2,43 @@ import 'reset-css'
 import styled from 'styled-components'
 import {device} from '../mediaQueries'
 
-export const Test = styled.div`
-width: 100%;
-height: 100vh;
-display: flex
-align-items: flex-end;
-justify-content: space-between;
-background: #f9f8eb;
-`
-export const Nav= styled.div`
-{
-
+export const MobileBody = styled.div`
+@media ${device.mobileS}{
 display: flex;
 align-items: flex-end;
 justify-content: space-between;
-height: 5%;
-width: 100%;
+background: #f9f8eb;
+height: 100vh;
 }
+@media ${device.tablet}{
+    display: none;
 `
 
-// export const Button= styled.div`
-// width: 10%;
-//   height: 60%;
-//   background: ${props => props.register ? '#76b39d' : '#76b39d'};
-//   color: #05004e;
-//   border: none;
-//   &:hover {
-//     background: ${props => props.register ? '#fd5f00' : '#fd5f00'};
-//     cursor: pointer;
-//   }
-// `
+
+export const NavBorder= styled.div`
+height: 10%;
+width: 100%;
+border-top: 1px solid grey;
+display: flex;
+align-items: flex-start;
+justify-content: space-around;
+position: fixed;
+background: white;
+bottom: 0;
+`
+
+
 export const Button= styled.button`
 @media ${device.mobileS}{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background: transparent;
     border: none;
-    padding: 15px;
-    border: 30px;
+    tex-decoration: none;
     svg{
         height: 100px;
         width: 50px;
@@ -45,7 +46,18 @@ export const Button= styled.button`
         
         :hover{
             color: #76b39d;
+        color: grey;
+        :hover,
+        active{
+            color: red;
         }
     }
-}
+    }
+    padding: 0;
+`
+export const P = styled.p`
+text-transform: uppercase;
+font-size: 8px;
+margin-top: 3px;
+color: grey;
 `

@@ -53,15 +53,17 @@ export const MSignUp = styled.button`
 @media ${device.mobileS}{
   background: #fd5f00;
     width: 80%;
-    color: white;
+    
     font-size: 16px;
     height: 30px;
     text-transform: uppercase;
     border: none;
     margin: 140px 0 10px 0;
+}`
 
-}
-
+export const A = styled.a`
+text-decoration: none;
+color: white;
 `
 
 export const MP2 = styled.p`

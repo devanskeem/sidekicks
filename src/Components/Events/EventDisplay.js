@@ -18,16 +18,26 @@ export class EventDisplay extends Component {
         title: '',
         description: '',
         image: '',
+        location: ''
       };
     }
 
     componentDidMount() {
-      axios.get(`/users/getUsersByEvent/${this.props.events.id}`).then(res => {
-        console.log('res.data', res.data)
+      axios.get(`/users/byevent/${this.props.id}`).then(res => {
         this.setState({
           usersAttending: res.data
         });
       });
+      axios.get(`/event/byid/${this.props.id}`).then( res => {
+        console.log('res.data', res.data)
+        this.setState({
+          host: res.data[0].host,
+          title: res.data[0].name,
+          description: res.data[0].description,
+          image: res.data[0].image,
+          location: res.data[0].location
+        })
+      })
     }
 
   render() {  
@@ -42,6 +52,7 @@ export class EventDisplay extends Component {
     })
  
     return (
+
       <div>
         <img src={image} alt=""/>
         <h1>{title}</h1>
@@ -55,6 +66,10 @@ export class EventDisplay extends Component {
           <img src={host.image} alt=""/>
           <p>{host.display_name}</p>
         </div>
+
+        <button> Join Event </button>
+
+        <button onClick={this.props.toggleEventDisplay}> Go Back </button>
 
       </div>
     )
