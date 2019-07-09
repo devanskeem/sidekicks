@@ -7,8 +7,7 @@ export const MobileBody = styled.div`
 display: flex;
 align-items: flex-end;
 justify-content: space-between;
-background: #f9f8eb;
-height: 100vh;
+
 }
 @media ${device.tablet}{
     display: none;

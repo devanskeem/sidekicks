@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import add_image_icon from './../../Assets/add_image_icon.png'
+import add_image_icon from '../../../Assets/add_image_icon.png'
+import {Image, MBody, EventBorder, Button, ButtonBorder} from './EventMobile'
+import 'reset-css'
 
 
 
@@ -56,19 +58,26 @@ export class EventDisplay extends Component {
     return (
 
       <div>
-        <img src={image} alt=""/>
+        <MBody>
+          <EventBorder>
+        <Image src={image} alt=""/>
         <h1>{title}</h1>
         <p>{description}</p>
+        
 
-        <div className='attending-users'>
+        {/* <div className='attending-users'>
           {displayUsers}
-        </div>
+        </div> */}
 
-        <div className='host'>
+        
+        </EventBorder>
+        <ButtonBorder>
+        <Button onClick={this.handleJoin}> Join and RSVP</Button>
+        </ButtonBorder>
+        <div >
           host: {host}
         </div>
-
-        <button onClick={this.handleJoin}> Join Event </button>
+        </MBody>
       </div>
     )
   }

@@ -7,7 +7,7 @@ import 'reset-css'
 
 
 
-import EventDisplay from './EventDisplay'
+import EventDisplay from './EventDisplay/EventDisplay'
 
 
 class BrowseEvents extends Component {

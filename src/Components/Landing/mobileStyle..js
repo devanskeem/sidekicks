@@ -11,6 +11,7 @@ font-family: "Sansita";
   background-image: url(${Hiking});
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 @media ${device.tablet}{
   display: none;
@@ -19,7 +20,7 @@ font-family: "Sansita";
 export const MBody1 = styled.div`
 @media ${device.mobileS}{
   width: 100%;
-  height: 400px;
+  height: 260px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -53,7 +54,6 @@ export const MSignUp = styled.button`
 @media ${device.mobileS}{
   background: #fd5f00;
     width: 80%;
-    
     font-size: 16px;
     height: 30px;
     text-transform: uppercase;
