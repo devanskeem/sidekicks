@@ -21,6 +21,9 @@ border-top: 1px solid grey;
 display: flex;
 align-items: flex-start;
 justify-content: space-around;
+position: fixed;
+background: white;
+bottom: 0;
 `
 
 
@@ -36,7 +39,7 @@ export const Button= styled.button`
     border: none;
     tex-decoration: none;
     svg{
-        color: black;
+        color: grey;
         :hover,
         active{
             color: red;
@@ -49,4 +52,5 @@ export const P = styled.p`
 text-transform: uppercase;
 font-size: 8px;
 margin-top: 3px;
+color: grey;
 `
