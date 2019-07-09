@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import add_image_icon from './../../Assets/add_image_icon.png'
-// import { storage } from ''
 
 
 
@@ -14,7 +13,7 @@ export class EventDisplay extends Component {
       
       this.state = {
         usersAttending: [], //array of user objects {display_name, image}
-        host: {},
+        host: null,
         title: '',
         description: '',
         image: '',
@@ -23,13 +22,12 @@ export class EventDisplay extends Component {
     }
 
     componentDidMount() {
-      axios.get(`/users/byevent/${this.props.id}`).then(res => {
+      axios.get(`/users/byevent/${this.props.currEvent}`).then(res => {
         this.setState({
           usersAttending: res.data
         });
       });
-      axios.get(`/event/byid/${this.props.id}`).then( res => {
-        console.log('res.data', res.data)
+      axios.get(`/event/byid/${this.props.currEvent}`).then( res => {
         this.setState({
           host: res.data[0].host,
           title: res.data[0].name,
@@ -38,6 +36,10 @@ export class EventDisplay extends Component {
           location: res.data[0].location
         })
       })
+    }
+
+     handleJoin = () => {
+      axios.post(`/events/joinevent/${this.props.id}`)
     }
 
   render() {  
@@ -63,17 +65,17 @@ export class EventDisplay extends Component {
         </div>
 
         <div className='host'>
-          <img src={host.image} alt=""/>
-          <p>{host.display_name}</p>
+          host: {host}
         </div>
 
-        <button> Join Event </button>
-
-        <button onClick={this.props.toggleEventDisplay}> Go Back </button>
-
+        <button onClick={this.handleJoin}> Join Event </button>
       </div>
     )
   }
 }
 
-export default EventDisplay
+function mapStateToProps(reduxState){
+  return reduxState
+}
+
+export default connect(mapStateToProps, null)(EventDisplay)

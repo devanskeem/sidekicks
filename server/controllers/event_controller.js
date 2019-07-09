@@ -12,18 +12,38 @@ module.exports = {
     getEventById: async (req, res) => {
         const db = req.app.get('db');
         let { id } = req.params;
-        id = +id;
+        const event_id = +id;
 
-        const event =  await db.get_event_by_id({id})
-        console.log(event)
+        const event =  await db.get_event_by_id({id: event_id})
         res.status(200).send(event)
     },
-    getEventsByCreator: async (req, res) => {
+    getEventsByHost: async (req, res) => {
         const db = req.app.get('db')
-        let {creator_id} = req.params
-        creator_id = +creator_id
-        const events = await db.get_events_by_creator({creator_id})
+        const {id} = req.params
+        const user_id = +id
+        const events = await db.get_events_by_host({user_id})
         res.status(200).send(events)
+    },
+    getEventsByUser: async (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        const user_id = +id
+        const eventObjArr = []
+        const eventIdArr = await db.get_events_by_user({user_id})
+        .catch(err => res.status(500).send(err))
+        for (let i = 0; i < eventIdArr.length; i++) {
+            const event = await db.get_event_by_id({id: eventIdArr[i].event_id})
+            eventObjArr.push(event[0])
+        }
+        res.status(200).send(eventObjArr)
+    },
+    joinEvent: async (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        const {user_id} = req.session.passport.user
+        const event_id = +id
+        db.join_event({user_id, event_id})
+        res.status(200)
     },
     addEvent: async (req, res) => {
         const db = req.app.get('db');
