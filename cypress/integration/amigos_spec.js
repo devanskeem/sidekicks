@@ -1,12 +1,48 @@
-//Authentication with Auth0
+//Auth0 login test
+
+Cypress.Commands.add('login', (overrides = {}) => {})
+Cypress.log({
+    name: 'loginViaAuth0'
+});
+
 const option = {
     method: 'POST',
-    url: 'http://localhost:333'
-}
+    url: CustomElementRegistry.env('auth_url'),
+    body: {
+        grant_type: 'password',
+        username: Cypress.env('auth_username'),
+        password: Cypress.env('auth_password'),
+        audience: Cypress.env('auth_audience'),
+        scope: 'openid profile email',
+        client_id: Cypress.env('auth_client_id'),
+        client_secret: Cypress.env('auth_client_secret'),
+    },
+};
+cy.request(options);
 
+describe('login', () => {
+    it('should successfully log into our app', () => {
+        cy.login()
+        .then((resp) => {
+            return resp.body;
+        })
+        .then((body) => {
+            const {access_token, expires_in, id_token} = body;
+            const auth0State = {
+                nonce: '',
+                state: 'some-random-state'
+            };
+        const callbackUrl = `/callback#access_token=${access_token}&scope=openid&id_token=${id_token}&expires_in=${expires_in}&token_type=Bearer&state=${auth0State.state}`;
+        cy.visit(callbackUrl, {
+            oneBeforeLoad(win) {
+                win.document.cookie = 'com.auth0.auth.some-random-state=' + JSON.stringify(auth0State);
+            }
+        })
 
+        })  
 
-
+    })
+})
 
 //Events
 describe('Look at events', () => {
