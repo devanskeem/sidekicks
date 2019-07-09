@@ -3,6 +3,14 @@ import { updateUser, updateEvents, updateCurrEvent } from '../../redux/reducer'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
+import {
+  Body,
+  MBody1,
+  MTitle,
+  MP,
+  MBody2,
+} from './EventStyleMobile';
+
 import 'reset-css'
 
 
@@ -40,6 +48,7 @@ class BrowseEvents extends Component {
   render() {
     const eventDisplay = this.props.events.map((event, i) => {
       return (
+        // ========MOBILE VIEW=========
         <div onClick={() => this.toggleEventDisplay(event.event_id)} key={i} style={{
           border: '1px solid black',
           width: '200px'
@@ -54,12 +63,14 @@ class BrowseEvents extends Component {
     })
     return (
       <div>
+        <Body>
         <div>
           This is the Browse events component
         <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
           <button onClick={this.handleButtonClick}>Submit</button>
           {eventDisplay}
         </div>
+        </Body>
       </div>
     )
   }

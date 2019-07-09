@@ -41,7 +41,7 @@ export class EventDisplay extends Component {
     }
 
      handleJoin = () => {
-      axios.post(`/events/joinevent/${this.props.id}`)
+      axios.post(`/events/joinevent/${this.props.currEvent}`)
     }
 
   render() {  

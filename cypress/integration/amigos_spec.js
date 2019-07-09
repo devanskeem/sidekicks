@@ -1,3 +1,49 @@
+//Auth0 login test
+
+Cypress.Commands.add('login', (overrides = {}) => {})
+Cypress.log({
+    name: 'loginViaAuth0'
+});
+
+const option = {
+    method: 'POST',
+    url: CustomElementRegistry.env('auth_url'),
+    body: {
+        grant_type: 'password',
+        username: Cypress.env('auth_username'),
+        password: Cypress.env('auth_password'),
+        audience: Cypress.env('auth_audience'),
+        scope: 'openid profile email',
+        client_id: Cypress.env('auth_client_id'),
+        client_secret: Cypress.env('auth_client_secret'),
+    },
+};
+cy.request(options);
+
+describe('login', () => {
+    it('should successfully log into our app', () => {
+        cy.login()
+        .then((resp) => {
+            return resp.body;
+        })
+        .then((body) => {
+            const {access_token, expires_in, id_token} = body;
+            const auth0State = {
+                nonce: '',
+                state: 'some-random-state'
+            };
+        const callbackUrl = `/callback#access_token=${access_token}&scope=openid&id_token=${id_token}&expires_in=${expires_in}&token_type=Bearer&state=${auth0State.state}`;
+        cy.visit(callbackUrl, {
+            oneBeforeLoad(win) {
+                win.document.cookie = 'com.auth0.auth.some-random-state=' + JSON.stringify(auth0State);
+            }
+        })
+
+        })  
+
+    })
+})
+
 //Events
 describe('Look at events', () => {
     it ('should have active events', () => {
@@ -24,29 +70,66 @@ describe('view an event', () => {
     })
 })
     it('should have an "Add an Event" button', () => {
-        cy.get("placeholder_button").should('exist').click()
+        cy.visit('/events/add')
+        cy.get("event").should('exist').click()
+        cy.url().should('include', '/events/add')
     })
+
     it('Should type in the event name', () => {
-        cy.get('input.input').type('Pot Luck').should ('have.value', 'Pot Luck')('exist')
+        cy.visit('/events/add')
+        cy.get('input.input').type('Park Pot Luck').should ('have.value', 'Pot Luck')('exist')
         cy.get(div.input).click()
 
     })
 
     it('Should type in the description', () => {
-        cy.get('input.input').type('').should('have.value', placeholder)(exist)
+        cy.visit('/events/add')
+        cy.get('input.input').type('').should('have.value', 'Outdoor fun potluck in the park')(exist)
         cy.get(div.input).click()
     })
 
     it('Should type in the host',() => {
-        cy.get(input.input).type('').should('have.value', placeholder)(exist)
+        cy.visit('events/add')
+        cy.get(input.input).type('').should('have.value', 'Devan Skeem')(exist)
         cy.get(div.input).click()
     })
 
-    
+    it('Should type in the category', () =>{
+        cy.visit('/events/add')
+        cy.get(input.input).type('').should('have.value',  'Outdoor')
+    })
 
-    it('Should have Save (create) button', () => {
+    it('Should type in the total_people', () => {
+        cy.visit('/events/add')
+        cy.get(input.input).type('').should('have.value', '10')(exist)
+        cy.get(div.input).click()
+    })
+
+    it('Should type in the cost', () => {
+        cy.visit('/events/add')
+        cy.get(input.input).type('').should('have.value', '$10')(exist)
+        cy.get(div.input).click()
+    })
+
+    it('Should type in the address', () => {
+        cy.visit('/events/add')
+        cy.get(input.input).type('Nuns Park Provo Canyon Utah')(exist)
+        cy.get(div.input).click()
+    })
+
+    it('Should have an image', () =>{
+        cy.visit('/events/add')
+        cy.get('img.size:last').click()
+        cy.url().should('include', '/event')
+    })
+
+    it('Should have Create  button', () => {
+        // cy.visit('/events/add')
         cy.get('button.save(create').should('have.length', 3)
     })
+
+
+
 
 
 
