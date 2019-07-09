@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {updateUser, updateEvents} from '../../redux/reducer'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import 'reset-css'
+
 
 
 class BrowseEvents extends Component {
