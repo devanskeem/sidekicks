@@ -2,17 +2,75 @@ import {device} from '../mediaQueries'
 import styled from 'styled-components'
 import 'reset-css'
 
-export const Body = styled.body`
+export const Mbody = styled.body`
 height: 100vh;
 width: 100%;
 font-family: "Sansita";
 @media ${device.mobileS}{
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: black;
 }
 @media ${device.tablet}{
   display: none;
 }`
+
+export const Container = styled.form`
+  width: 30%;
+  height: 70%;
+  background: #f9f8eb;
+  border: 2px solid #5ca0d3;
+  display: flex;
+  margin: 1px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`
+export const Image = styled.div`
+  width: 15px;
+  height: 15px;
+  background: transparent;
+  display: flex;
+  color: black;
+  font-family: bold;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`
+export const Name = styled.h1`
+  font-size: 25px;
+  font-weight: bold;
+  color: #5e0a0a;
+`
+export const Header = styled.div`
+  width: 80%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`
+export const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: #f9f8eb;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+`
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const MBody1 = styled.div`
 @media ${device.mobileS}{
