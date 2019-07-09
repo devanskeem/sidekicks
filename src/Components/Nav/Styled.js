@@ -8,6 +8,7 @@ height: 100vh;
 display: flex
 align-items: flex-end;
 justify-content: space-between;
+background: #f9f8eb;
 `
 export const Nav= styled.div`
 {
@@ -41,6 +42,7 @@ export const Button= styled.button`
         height: 100px;
         width: 50px;
         color: #fd5f00;
+        
         :hover{
             color: #76b39d;
         }
