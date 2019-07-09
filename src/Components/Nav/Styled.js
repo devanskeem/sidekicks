@@ -6,11 +6,12 @@ export const MobileBody = styled.div`
 @media ${device.mobileS}{
 display: flex;
 align-items: flex-end;
+justify-content: space-between;
+background: #f9f8eb;
 height: 100vh;
 }
 @media ${device.tablet}{
     display: none;
-}
 `
 
 
@@ -39,6 +40,12 @@ export const Button= styled.button`
     border: none;
     tex-decoration: none;
     svg{
+        height: 100px;
+        width: 50px;
+        color: #fd5f00;
+        
+        :hover{
+            color: #76b39d;
         color: grey;
         :hover,
         active{
