@@ -1,5 +1,4 @@
 require('dotenv').config()
-const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const passport = require('passport');
@@ -9,9 +8,11 @@ const event_ctrl = require ('./controllers/event_controller')
 const auth_ctrl = require ('./controllers/auth_controller')
 const message_ctrl = require ('./controllers/message_controller')
 const user_ctrl = require ('./controllers/user_controller')
-
-
+const express = require('express')
 const app = express()
+
+
+
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,
@@ -78,31 +79,22 @@ massive(CONNECTION_STRING).then(db => {
 
 //event endpoints
 
-app.get('/events/all', event_ctrl.getAllEvents) //response: [{eventId: int, eventTitle: string, eventDescription: string, eventHost: {user}, attendees: [users}]
+app.get('/events/all', event_ctrl.getAllEvents)
 app.get('/event/byid/:id', event_ctrl.getEventById)
-app.get('/events/creator/:creator_id', event_ctrl.getEventsByCreator)
+app.get('/events/host/:id', event_ctrl.getEventsByHost)
+app.get('/events/user/:id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent)
 // app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
 app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
-//message endpoints 
-
-app.get('/messages/:event-id', message_ctrl.getMessagesByEvent) ////response: [{messageId: int, user: {user}, content: string, timestamp}]
-app.delete('/messages/delete/:id', message_ctrl.deleteMessageById) //response: status code
-app.delete('/messages/delete/:event-id', message_ctrl.deleteMessagesByEvent) //response: status code
-app.post('/messages/add', message_ctrl.addMessage) //response: newly created {message}
+app.post('/events/joinevent/:id', event_ctrl.joinEvent)
 
 //user endpoints 
 
 app.get('/users/all', user_ctrl.getAllUsers) //response: [{userId: int, username: string, firstName: string, lastName: string, age: integer, location: string, gender: string, image: string,bio: string}]
-app.get('/users/current', user_ctrl.getCurrentUser)
 app.get('/users/:id', user_ctrl.getUserById) //response: {user} 
-
 app.get('/users/byevent/:id', user_ctrl.getUsersByEvent) //response: [{user}]
-
-app.post('/users/add', user_ctrl.addUser) //resonse newly create {user}
-app.put('/users/update', user_ctrl.updateUser)
 
 
 //auth endpoint
@@ -128,6 +120,7 @@ app.get("/auth/logout", (req, res) => {
     // this is a built in method in passport that kills the session and resets the user property
     res.redirect(`${process.env.FRONT_END_URL}/`);
 });
+
 
 app.listen(SERVER_PORT, () => {
     console.log('listening on port: ', SERVER_PORT)

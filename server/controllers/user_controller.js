@@ -26,50 +26,49 @@ module.exports = {
 
   getUsersByEvent: async (req, res) => {
     const db = req.app.get("db");
-    let { id } = req.params;
-    id = +id
+    const { id } = req.params;
+    const event_id = +id
     const userObjArr = []
     const userIdArr = await db
-      .get_users_by_event({ event_id: id })
+      .get_users_by_event({ event_id })
       .catch(err => res.status(500).send(console.log(err)));
 
     for (let i = 0; i < userIdArr.length; i++) {
         const user = await db.get_user_by_id({id: userIdArr[i].user_id})
         userObjArr.push(user[0])
     }
-    console.log('userObjArr', userObjArr)
     res.status(200).send(userObjArr)
   },
 
-  addUser: (req, res) => {
-    const db = req.app.get("db");
+  // addUser: (req, res) => {
+  //   const db = req.app.get("db");
 
-    const {
-      username,
-      firstName,
-      lastName,
-      age,
-      location,
-      gender,
-      image,
-      bio
-    } = req.body;
+  //   const {
+  //     username,
+  //     firstName,
+  //     lastName,
+  //     age,
+  //     location,
+  //     gender,
+  //     image,
+  //     bio
+  //   } = req.body;
 
-    db.create_user({
-      username,
-      firstName,
-      lastName,
-      age,
-      location,
-      gender,
-      image,
-      bio
-    })
-      .then(user => {
-        res.status(200).send(user);
-      })
-      .catch(err => res.status(500).send(console.log(err)));
-  },
+  //   db.create_user({
+  //     username,
+  //     firstName,
+  //     lastName,
+  //     age,
+  //     location,
+  //     gender,
+  //     image,
+  //     bio
+  //   })
+  //     .then(user => {
+  //       res.status(200).send(user);
+  //     })
+  //     .catch(err => res.status(500).send(console.log(err)));
+  // },
 
   updateUser: (req, res) => {
     const db = req.app.get("db");

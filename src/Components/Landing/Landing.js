@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Body, MBody1, MTitle, MP, MBody2, MSignUp, MP2, MLoginBtn, A } from "./mobileStyle.";
-import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, DBar4, Img, H2, P, Logo} from './desktopStyle'
+import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, DBar4, Img, H2, P, Logo, DesktopA} from './desktopStyle'
 import arrow from '../../Assets/Arrow.png'
-import mg from '../../Assets/magnifier.png'
-import Add from '../../Assets/Add.png'
 import * as Icon from 'react-feather'
 import hero from '../../Assets/Sidekicks2.png'
 
@@ -33,7 +31,7 @@ export default class App extends Component {
             <Phrase>social event organizer</Phrase>
           </TitleDiv>
           <JoinDiv>
-            <JoinBtn><A  href="http://localhost:3333/auth/google">Join Now</A></JoinBtn>
+          <DesktopA  href="http://localhost:3333/auth/google"> <JoinBtn>Join Now</JoinBtn></DesktopA>
             <Arrow src={arrow}/>
           </JoinDiv>
         </Hero>
@@ -44,7 +42,7 @@ export default class App extends Component {
             <DBar2>
             <Img><Icon.Search></Icon.Search></Img>
             <DBar3>
-              <H2>dicover events</H2>
+              <H2>discover events</H2>
               <P>See who’s hosting events for all the things you love.</P>
             </DBar3>
             <Img> <Icon.PlusSquare></Icon.PlusSquare> </Img>

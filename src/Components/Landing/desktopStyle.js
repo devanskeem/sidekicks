@@ -68,7 +68,7 @@ flex-direction: column;
 
 
 export const JoinBtn = styled.button`
-margin-top: 40px;
+
 width: 180px;
 height: 64px;
 background-color: transparent;
@@ -76,12 +76,12 @@ letter-spacing: 0.2em;
 font-size: 13px;
 font-weight: 400;
 text-transform: uppercase;
-border: 2px solid #fd5f00;
+border: 2px solid #fff;
 color: white;
 :hover {
-background: #fd5f00;
-  color: black;
+background: #fff;
   cursor: pointer;
+  color:black;
 
 `
 
@@ -114,13 +114,14 @@ height: 150px;
 display: flex;
 justify-content: space-around;
 align-items: center;
+
 `
 
 export const DBar3 = styled.div`
 width: 25%;
 height: 150px;
 display: flex;
-align-items: center;
+align-items: flex-start;
 flex-direction: column;
 justify-content: center;
 `
@@ -148,4 +149,10 @@ margin-bottom: 15px;
 
 export const P = styled.p`
 color: white;
+`
+export const DesktopA = styled.a`
+margin-top: 40px;
+height: 64px;
+text-decoration: none;
+z-index: 20
 `

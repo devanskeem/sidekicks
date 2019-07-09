@@ -1,53 +1,48 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Nav, Test, Button, Home } from './Styled'
-import * as Icon from 'react-feather'
+import {  Button, MobileBody, NavBorder,P } from "./Styled";
+import * as Icon from "react-feather";
 
 function Navbar(props) {
-  console.log(props);
   if (props.location.pathname === "/") return null;
   else {
     return (
-      <Test>
-        <Nav>
-          
-          <Button>
-            
-            <Link to="/browseevents">
-          <Icon.Home />
-        </Link>
-        </Button>
-
-        <Button>
-        
-          <Link to="/myevents">
-           <Icon.Calendar />
-        </Link>
-        </Button>
-        
-        <Button>
-          
-        <Link to="/createevent">
-        <Icon.PlusSquare />
-        </Link>
-        </Button>
-
-        <Button>
-          
-          <Link to="/messages">
-          <Icon.MessageSquare />
-        </Link>
-        </Button>
-
-        <Button>
-          
-          <Link to="/userprofile">
-          <Icon.User />
-        </Link>
-        </Button>
-
-        </Nav>
-      </Test>
+      <div>
+        <MobileBody>
+          <NavBorder>
+            <Button>
+              <Link to="/browseevents">
+                <Icon.Home />
+              </Link>
+                <P>home</P>
+            </Button>
+            <Button>
+              <Link to="/myevents">
+                <Icon.Calendar />
+              </Link>
+              <P>my events</P>
+            </Button>
+            <Button>
+              <Link to="/createevent">
+                <Icon.PlusSquare />
+              </Link>
+              <P>create</P>
+            </Button>
+            <Button>
+              <Link to="/messages">
+                <Icon.MessageSquare />
+              </Link>
+              <P>messages</P>
+            </Button>
+            <Button>
+              <Link to="/userprofile">
+                <Icon.User />
+              </Link>
+              <P>profile</P>
+            </Button>
+        </NavBorder>
+        </MobileBody>
+      </div>
     );
   }
 }
