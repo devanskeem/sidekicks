@@ -5,10 +5,16 @@ import axios from 'axios'
 
 import {
   Body,
+  Image,
+  Name,
+  Header,
+  AppContainer,
+  Container,
   MBody1,
   MTitle,
   MP,
   MBody2,
+  Mbody
 } from './EventStyleMobile';
 
 import 'reset-css'
@@ -48,29 +54,38 @@ class BrowseEvents extends Component {
   render() {
     const eventDisplay = this.props.events.map((event, i) => {
       return (
-        // ========MOBILE VIEW=========
+        <div>
         <div onClick={() => this.toggleEventDisplay(event.event_id)} key={i} style={{
           border: '1px solid black',
           width: '200px'
         }}>
-          <img src={event.image} />
-          <p>{event.name}</p>
+          <Header>
+            <div>
+          <Image><img src={event.image} /></Image>
+          </div>
+          <div>
+          <Name><p>{event.name}</p></Name>
           <p>{event.description}</p>
           <p>{event.location}</p>
           <p>Cost: {event.cost}</p>
+          </div>
+          </Header>
+          </div>
         </div>
       )
     })
     return (
+      //=========Mobile View========
       <div>
-        <Body>
-        <div>
+        <Mbody>
           This is the Browse events component
         <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
           <button onClick={this.handleButtonClick}>Submit</button>
+
+          <AppContainer>
           {eventDisplay}
-        </div>
-        </Body>
+          </AppContainer>
+          </Mbody>
       </div>
     )
   }
