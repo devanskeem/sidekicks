@@ -4,7 +4,6 @@ import { Nav, Test, Button, Home } from './Styled'
 import * as Icon from 'react-feather'
 
 function Navbar(props) {
-  console.log(props);
   if (props.location.pathname === "/") return null;
   else {
     return (

@@ -21,9 +21,9 @@ export default (
         <Route path='/eventdisplay' component={EventDisplay}/>
         <Route path='/messages' component={Messages}/>
         <Route path='/userprofile' component={UserProfile}/>
-        <Route path='/tipstricks' components={TipsTricks}/>
-        <Route path='/editprofile' components={EditProfile}/>
-        <Route path='/createevent' components={CreateEvent}/>
-        <Route path='/myevents' components={MyEvents}/>
+        <Route path='/tipstricks' component={TipsTricks}/>
+        <Route path='/editprofile' component={EditProfile}/>
+        <Route path='/createevent' component={CreateEvent}/>
+        <Route path='/myevents' component={MyEvents}/>
     </Switch>
 )

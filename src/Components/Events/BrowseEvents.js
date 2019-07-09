@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { updateUser, updateEvents } from '../../redux/reducer'
+import { updateUser, updateEvents, updateCurrEvent } from '../../redux/reducer'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import EventDisplay from './EventDisplay'
@@ -9,13 +9,12 @@ class BrowseEvents extends Component {
     super(props)
 
     this.state = {
-      showEvent: false,
       event_id: null
     }
   }
 
   componentDidMount() {
-    axios.get('events/all').then(res => {
+    axios.get('/events/all').then(res => {
       this.props.updateEvents(res.data)
       this.forceUpdate()
     })
@@ -26,10 +25,8 @@ class BrowseEvents extends Component {
   }
 
   toggleEventDisplay = (id) => {
-    this.setState({
-      showEvent: !this.state.showEvent,
-      event_id: id
-    })
+    this.props.updateCurrEvent(id)
+    this.props.history.push('/eventdisplay')
   };
 
 
@@ -51,18 +48,12 @@ class BrowseEvents extends Component {
     })
     return (
       <div>
-        {
-          this.state.showEvent ?
-            <EventDisplay id={this.state.event_id} toggleEventDisplay={this.toggleEventDisplay}/>
-        :
         <div>
           This is the Browse events component
         <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
           <button onClick={this.handleButtonClick}>Submit</button>
           {eventDisplay}
         </div>
-
-        }
       </div>
     )
   }
@@ -74,6 +65,6 @@ function mapStateToProps(reduxState) {
   return reduxState
 }
 
-const mapDispatchToProps = { updateUser, updateEvents }
+const mapDispatchToProps = { updateUser, updateEvents, updateCurrEvent }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrowseEvents)
