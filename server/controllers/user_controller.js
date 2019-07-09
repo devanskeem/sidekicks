@@ -26,18 +26,18 @@ module.exports = {
 
   getUsersByEvent: async (req, res) => {
     const db = req.app.get("db");
-    const { id } = req.params;
+    let { id } = req.params;
+    id = +id
     const userObjArr = []
     const userIdArr = await db
       .get_users_by_event({ event_id: id })
       .catch(err => res.status(500).send(console.log(err)));
 
     for (let i = 0; i < userIdArr.length; i++) {
-        const user = await db.get_user_by_id({id: userIdArr[i]})
-        console.log('user', user)
-        userObjArr.push(user)
+        const user = await db.get_user_by_id({id: userIdArr[i].user_id})
+        userObjArr.push(user[0])
     }
-
+    console.log('userObjArr', userObjArr)
     res.status(200).send(userObjArr)
   },
 
