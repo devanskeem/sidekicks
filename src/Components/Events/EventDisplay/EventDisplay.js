@@ -28,16 +28,21 @@ export class EventDisplay extends Component {
         this.setState({
           usersAttending: res.data
         });
-      });
+      })
       axios.get(`/event/byid/${this.props.currEvent}`).then( res => {
         this.setState({
-          host: res.data[0].host,
           title: res.data[0].name,
           description: res.data[0].description,
           image: res.data[0].image,
           location: res.data[0].location
         })
+        axios.get(`/users/${res.data[0].host}`).then(res => {
+          this.setState({
+            host: res.data[0].display_name
+          })
+        })
       })
+      
     }
 
      handleJoin = () => {
