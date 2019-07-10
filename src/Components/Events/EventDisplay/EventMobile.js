@@ -6,23 +6,29 @@ import 'reset-css'
 export const MBody = styled.body`
 width: 100%;
 height: 100vh;
+font-family: 'Sansita';
 @media ${device.mobileS}{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+@media ${device.tablet}{
+  display: none;
+}
 
 `
 export const EventBorder = styled.div`
 width: 95%;
-height: 300px;
+height: 275px;
 margin-top: 25px;
 border-radius: 3px;
 `
 
 export const Image = styled.img`
-width: 100%;
-height: 100px;
+width: 95%;
+height: 230px;
+margin-top: 10px;
+box-shadow: 3px 3px 4px grey;
 `
 export const Button = styled.button`
 color: white;
@@ -41,4 +47,15 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-top: 5px;
+`
+
+export const Host = styled.div`
+margin-bottom: 5px;
+svg {
+  color: grey;
+}
+`
+
+export const Title = styled.h1`
+margin-top: 10px;
 `

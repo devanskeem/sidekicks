@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import add_image_icon from '../../../Assets/add_image_icon.png'
-import {Image, MBody, EventBorder, Button, ButtonBorder} from './EventMobile'
+import {Image, MBody, EventBorder, Button, ButtonBorder,Host, Title} from './EventMobile'
 import 'reset-css'
+import * as Icon from 'react-feather'
 
 
 
@@ -61,8 +61,7 @@ export class EventDisplay extends Component {
         <MBody>
           <EventBorder>
         <Image src={image} alt=""/>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <Title>{title}</Title>
         
 
         {/* <div className='attending-users'>
@@ -74,9 +73,10 @@ export class EventDisplay extends Component {
         <ButtonBorder>
         <Button onClick={this.handleJoin}> Join and RSVP</Button>
         </ButtonBorder>
-        <div >
-          host: {host}
-        </div>
+        <Host >
+         <Icon.User></Icon.User> Hosted by: {host}
+        </Host>
+        <p>About:{description}</p>
         </MBody>
       </div>
     )
