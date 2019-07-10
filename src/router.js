@@ -9,7 +9,7 @@ import Messages from './Components/Profile/Messages'
 import UserProfile from './Components/Profile/UserProfile'
 import TipsTricks from './Components/TipsTricks'
 import EditProfile from './Components/Profile/EditProfile'
-import CreateEvent from './Components/Events/CreateEvent'
+import CreateEvent from './Components/Events/CreateEvent/CreateEvent'
 import MyEvents from './Components/Events/MyEvents'
 
 
