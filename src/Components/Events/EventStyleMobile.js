@@ -6,71 +6,52 @@ export const Mbody = styled.body`
 height: 100vh;
 width: 100%;
 font-family: "Sansita";
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-top: 65px;
 @media ${device.mobileS}{
-  background: black;
+  background: whitesmoke;
 }
 @media ${device.tablet}{
   display: none;
 }`
 
 export const Container = styled.form`
-  width: 30%;
-  height: 70%;
-  background: #f9f8eb;
-  border: 2px solid #5ca0d3;
+  width: 90vw;
+  height: 120px;
+  background: white;
   display: flex;
-  margin: 1px;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #fd5f00
+  box-shadow: 1px 2px 2px rgba(0,0,0, .3)
 `
-export const Image = styled.div`
-  width: 15px;
-  height: 15px;
-  background: transparent;
+export const Image = styled.img`
+  object-fit: cover;
+  height: 100%;
+  min-width: 160px;
+`
+
+export const Content = styled.div`
   display: flex;
-  color: black;
-  font-family: bold;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
 `
 export const Name = styled.h1`
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   color: #5e0a0a;
 `
 export const Header = styled.div`
-  width: 80%;
-  height: 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-`
-export const AppContainer = styled.div`
   width: 100vw;
-  height: 100vh;
-  background: #f9f8eb;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 8%;
+  position: fixed;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #fd5f00;
 `
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const MBody1 = styled.div`
 @media ${device.mobileS}{

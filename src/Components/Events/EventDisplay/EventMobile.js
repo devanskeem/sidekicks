@@ -25,7 +25,7 @@ border-radius: 3px;
 `
 
 export const Image = styled.img`
-width: 95%;
+max-width: 95%;
 height: 230px;
 margin-top: 10px;
 box-shadow: 3px 3px 4px grey;
@@ -78,4 +78,5 @@ border-radius: 25px
 export const Users = styled.div`
 margin-top: 40px;
 display: flex;
+overflow: auto;
 `
