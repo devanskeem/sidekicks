@@ -9,7 +9,8 @@ font-family: "Sansita";
 display: flex;
 align-items: center;
 flex-direction: column;
-margin-top: 65px;
+overflow: auto;
+margin-top: 50px;
 @media ${device.mobileS}{
   background: whitesmoke;
 }
@@ -17,27 +18,48 @@ margin-top: 65px;
   display: none;
 }`
 
-export const Container = styled.form`
-  width: 90vw;
+export const Mbody2 = styled.body`
+height: 100vh;
+width: 100%;
+font-family: "Sansita";
+display: flex;
+align-items: center;
+flex-direction: column;
+overflow: auto;
+@media ${device.mobileS}{
+  background: whitesmoke;
+}
+@media ${device.tablet}{
+  display: none;
+}`
+
+export const Container = styled.form` 
+  width: 80vw;
   height: 120px;
   background: white;
+  overflow: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #fd5f00
-  box-shadow: 1px 2px 2px rgba(0,0,0, .3)
+  border: 1px solid #fd5f00;
+  box-shadow: 1px 1px 2px 1px rgba(0,0,0, .2)
 `
 export const Image = styled.img`
   object-fit: cover;
+  border-radius: 4px 0 0 4px;
   height: 100%;
-  min-width: 160px;
+  min-width: 25%;
+  max-width: 25%;
 `
 
 export const Content = styled.div`
   display: flex;
+  width: 80%;
   flex-direction: column;
+  justify-content: center;
+  margin-right: 10px;
 `
 export const Name = styled.h1`
   font-size: 22px;
@@ -46,72 +68,35 @@ export const Name = styled.h1`
 `
 export const Header = styled.div`
   width: 100vw;
-  height: 8%;
+  height: 50px;
   position: fixed;
   top: 0;
   background: white;
-  border-bottom: 1px solid #fd5f00;
+  border-bottom: 1px solid darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-export const MBody1 = styled.div`
-@media ${device.mobileS}{
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+export const Searchbar = styled.input`
+width: 60%;
+border: none;
+font-size: 22px;
+height: 27px;
+background: lightgrey;
+border-radius: 5px;
+width: 360px;
+::placeholder{
+  color: grey;
 }
 `
 
-export const MTitle = styled.h1`
-color: orange;
-font-size: 46px;
-font-weight: bold;
-`
-export const MP = styled.p`
-color: orange;
-font-size: 32px;
-font-weight: 500
-`
-
-export const MBody2 = styled.div`
-@media ${device.mobileS}{
-  width: 100%;
-  height: 290px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-`
-
-export const MSignUp = styled.button`
-@media ${device.mobileS}{
-  background: #fd5f00;
-    width: 80%;
-    
-    font-size: 16px;
-    height: 30px;
-    text-transform: uppercase;
-    border: none;
-    margin: 140px 0 10px 0;
-}`
-
-export const A = styled.a`
-text-decoration: none;
+export const SearchBtn = styled.button`
+border: none;
+margin: 2px 0 0 5px;
+height: 28px;
+background: #fd5f00;
 color: white;
-`
-
-export const MP2 = styled.p`
-color: white;
-text-decoration: none;
-text-transform: capitalize;
-
-`
-export const MLoginBtn = styled.button`
-border: none; 
-background-color: transparent
-outline: none; 
-color: white;
+font-weight: 700;
+border-radius: 4px;
 `
