@@ -2,17 +2,56 @@ import {device} from '../mediaQueries'
 import styled from 'styled-components'
 import 'reset-css'
 
-export const Body = styled.body`
+export const Mbody = styled.body`
 height: 100vh;
 width: 100%;
 font-family: "Sansita";
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-top: 65px;
 @media ${device.mobileS}{
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: whitesmoke;
 }
 @media ${device.tablet}{
   display: none;
 }`
+
+export const Container = styled.form`
+  width: 90vw;
+  height: 120px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #fd5f00
+  box-shadow: 1px 2px 2px rgba(0,0,0, .3)
+`
+export const Image = styled.img`
+  object-fit: cover;
+  height: 100%;
+  min-width: 160px;
+`
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const Name = styled.h1`
+  font-size: 22px;
+  font-weight: bold;
+  color: #5e0a0a;
+`
+export const Header = styled.div`
+  width: 100vw;
+  height: 8%;
+  position: fixed;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #fd5f00;
+`
 
 export const MBody1 = styled.div`
 @media ${device.mobileS}{

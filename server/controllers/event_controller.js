@@ -31,12 +31,10 @@ module.exports = {
         const eventObjArr = []
         const eventIdArr = await db.get_events_by_user({user_id})
         .catch(err => res.status(500).send(err))
-        console.log('eventIdArr', eventIdArr)
         for (let i = 0; i < eventIdArr.length; i++) {
             const event = await db.get_event_by_id({id: eventIdArr[i].event_id})
             eventObjArr.push(event[0])
         }
-        console.log('eventObjArr', eventObjArr)
         res.status(200).send(eventObjArr)
     },
     joinEvent: async (req, res) => {
@@ -44,8 +42,6 @@ module.exports = {
         const {id} = req.params
         const {user_id} = req.session.passport.user
         const event_id = +id
-        console.log('event_id', event_id)
-        console.log('user_id', user_id)
         db.join_event({user_id, event_id})
         res.sendStatus(200)
     },

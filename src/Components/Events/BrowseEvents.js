@@ -2,21 +2,16 @@ import React, { Component } from 'react'
 import { updateUser, updateEvents, updateCurrEvent } from '../../redux/reducer'
 import { connect } from 'react-redux'
 import axios from 'axios'
-
 import {
-  Body,
-  MBody1,
-  MTitle,
-  MP,
-  MBody2,
-} from './EventStyleMobile';
+Container,
+  Image,
+  Content,
+  Name,
+  Header,
+  Mbody 
+} from './EventStyleMobile'
 
 import 'reset-css'
-
-
-
-import EventDisplay from './EventDisplay'
-
 
 class BrowseEvents extends Component {
   constructor(props) {
@@ -48,29 +43,27 @@ class BrowseEvents extends Component {
   render() {
     const eventDisplay = this.props.events.map((event, i) => {
       return (
-        // ========MOBILE VIEW=========
-        <div onClick={() => this.toggleEventDisplay(event.event_id)} key={i} style={{
-          border: '1px solid black',
-          width: '200px'
-        }}>
-          <img src={event.image} />
-          <p>{event.name}</p>
-          <p>{event.description}</p>
-          <p>{event.location}</p>
-          <p>Cost: {event.cost}</p>
-        </div>
+        <Container onClick={() => this.toggleEventDisplay(event.event_id)} key={i}>
+          <Image src={event.image} />
+          <Content>
+            <Name>{event.name}</Name>
+            <p>{event.description}</p>
+            <p>{event.location}</p>
+            <p>Cost: {event.cost}</p>
+          </Content>
+        </Container>
       )
     })
+
     return (
       <div>
-        <Body>
-        <div>
-          This is the Browse events component
-        <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
-          <button onClick={this.handleButtonClick}>Submit</button>
+        <Header>
+          <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
+          <button onClick={this.handleButtonClick}>Search</button>
+        </Header>
+        <Mbody>
           {eventDisplay}
-        </div>
-        </Body>
+        </Mbody>
       </div>
     )
   }

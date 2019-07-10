@@ -11,8 +11,6 @@ const user_ctrl = require ('./controllers/user_controller')
 const express = require('express')
 const app = express()
 
-
-
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,

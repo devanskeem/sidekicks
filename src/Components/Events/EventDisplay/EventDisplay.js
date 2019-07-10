@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import add_image_icon from './../../Assets/add_image_icon.png'
+import {Image, MBody, EventBorder, Button, ButtonBorder,Host, Title, UserIcon, ImgIcon, Users} from './EventMobile'
+import 'reset-css'
+import * as Icon from 'react-feather'
 
 
 
@@ -26,16 +28,21 @@ export class EventDisplay extends Component {
         this.setState({
           usersAttending: res.data
         });
-      });
+      })
       axios.get(`/event/byid/${this.props.currEvent}`).then( res => {
         this.setState({
-          host: res.data[0].host,
           title: res.data[0].name,
           description: res.data[0].description,
           image: res.data[0].image,
           location: res.data[0].location
         })
+        axios.get(`/users/${res.data[0].host}`).then(res => {
+          this.setState({
+            host: res.data[0].display_name
+          })
+        })
       })
+      
     }
 
      handleJoin = () => {
@@ -44,31 +51,42 @@ export class EventDisplay extends Component {
 
   render() {  
     const {title, description, host, image, usersAttending} = this.state
-    const displayUsers = usersAttending.map((element, index) => {
+    const userDisplay = usersAttending.slice(0,8).map((element, index) => {
       return(
-        <div>
-          <img src={element.image} alt=""/>
+        <UserIcon>
+          <ImgIcon src={element.image} />
           <p>{element.display_name}</p>
-        </div>
+        </UserIcon>
       )
     })
  
     return (
 
       <div>
-        <img src={image} alt=""/>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <MBody>
+          <EventBorder>
+        <Image src={image} alt=""/>
+        <Title>{title}</Title>
+        
 
-        <div className='attending-users'>
+        {/* <div className='attending-users'>
           {displayUsers}
-        </div>
+        </div> */}
 
-        <div className='host'>
-          host: {host}
-        </div>
+        
+        </EventBorder>
+        <ButtonBorder>
+        <Button onClick={this.handleJoin}> Join and RSVP</Button>
+        </ButtonBorder>
+        <Host >
+         <Icon.User></Icon.User> Hosted by: {host}
+        </Host>
+        <p>About:{description}</p>
+        <Users>
+          {userDisplay}
+        </Users>
+        </MBody>
 
-        <button onClick={this.handleJoin}> Join Event </button>
       </div>
     )
   }
