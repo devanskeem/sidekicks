@@ -15,11 +15,11 @@ justify-content: space-between;
 
 
 export const NavBorder= styled.div`
-height: 10%;
+height: 7%;
 width: 100%;
 border-top: 1px solid grey;
 display: flex;
-align-items: flex-start;
+align-items: center;
 justify-content: space-around;
 position: fixed;
 background: white;

@@ -8,7 +8,9 @@ Container,
   Content,
   Name,
   Header,
-  Mbody 
+  Mbody,
+  SearchBtn,
+  Searchbar
 } from './EventStyleMobile'
 
 import 'reset-css'
@@ -47,9 +49,7 @@ class BrowseEvents extends Component {
           <Image src={event.image} />
           <Content>
             <Name>{event.name}</Name>
-            <p>{event.description}</p>
             <p>{event.location}</p>
-            <p>Cost: {event.cost}</p>
           </Content>
         </Container>
       )
@@ -58,8 +58,8 @@ class BrowseEvents extends Component {
     return (
       <div>
         <Header>
-          <input onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder="Search Events" />
-          <button onClick={this.handleButtonClick}>Search</button>
+          <Searchbar onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder=" Search" />
+          <SearchBtn onClick={this.handleButtonClick}>Search</SearchBtn>
         </Header>
         <Mbody>
           {eventDisplay}
