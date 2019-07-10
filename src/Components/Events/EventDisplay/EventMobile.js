@@ -59,3 +59,23 @@ svg {
 export const Title = styled.h1`
 margin-top: 10px;
 `
+
+export const UserIcon = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 55px;
+width: 55px;
+`
+
+export const ImgIcon = styled.img`
+height: 25px;
+width: 25px; 
+border-radius: 25px
+`
+
+export const Users = styled.div`
+margin-top: 40px;
+display: flex;
+`

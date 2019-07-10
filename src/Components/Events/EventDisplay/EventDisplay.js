@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {Image, MBody, EventBorder, Button, ButtonBorder,Host, Title} from './EventMobile'
+import {Image, MBody, EventBorder, Button, ButtonBorder,Host, Title, UserIcon, ImgIcon, Users} from './EventMobile'
 import 'reset-css'
 import * as Icon from 'react-feather'
 
@@ -51,12 +51,12 @@ export class EventDisplay extends Component {
 
   render() {  
     const {title, description, host, image, usersAttending} = this.state
-    const displayUsers = usersAttending.map((element, index) => {
+    const userDisplay = usersAttending.slice(0,8).map((element, index) => {
       return(
-        <div>
-          <img src={element.image} alt=""/>
+        <UserIcon>
+          <ImgIcon src={element.image} />
           <p>{element.display_name}</p>
-        </div>
+        </UserIcon>
       )
     })
  
@@ -82,7 +82,11 @@ export class EventDisplay extends Component {
          <Icon.User></Icon.User> Hosted by: {host}
         </Host>
         <p>About:{description}</p>
+        <Users>
+          {userDisplay}
+        </Users>
         </MBody>
+
       </div>
     )
   }
