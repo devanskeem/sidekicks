@@ -41,7 +41,7 @@ export const Button= styled.button`
     svg{
         color: grey;
         :hover{
-            color: red;
+            color: #fd5f00;
         }
     }
     }
