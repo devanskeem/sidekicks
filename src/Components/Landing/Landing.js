@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Body, MBody1, MTitle, MP, MBody2, MSignUp, MP2, MLoginBtn, A } from "./mobileStyle.";
-import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, DBar4, Img, H2, P, Logo, DesktopA} from './desktopStyle'
+import { Body, MBody1,MP, MBody2, MSignUp, MP2, MLoginBtn, A, Logo1 } from "./mobileStyle.";
+import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, Img, H2, P, Logo, DesktopA} from './desktopStyle'
 import arrow from '../../Assets/Arrow.png'
 import * as Icon from 'react-feather'
 import hero from '../../Assets/Sidekicks2.png'
@@ -12,8 +12,8 @@ export default class App extends Component {
       <div>
       <Body>
         <MBody1>
-          <MTitle>SideKicks</MTitle>
-          <MP>social event organizer</MP>
+          <Logo1 src={hero}></Logo1>
+          {/* <MP>social event organizer</MP> */}
         </MBody1>
         <MBody2>
           <MSignUp > <A  href="http://localhost:3333/auth/google">Sign up</A> </MSignUp>
