@@ -5,6 +5,9 @@ import { getUser } from "react-redux";
 import io from "socket.io-client";
 import * as Icon from "react-feather";
 import { MobileBody, H1, ImageContainer, ImageBody, InputBody, InputDiv, H3, Input, InputDiv2} from "./MobileCreate";
+import {DesktopBody, DImageC,EditImage} from './DesktopStyle'
+import edit from '../../../Assets/Edit_Event.png'
+
 
 export class CreateEvent extends Component {
   constructor(props) {
@@ -146,6 +149,23 @@ export class CreateEvent extends Component {
           </InputDiv2>
           </InputBody>
         </MobileBody>
+
+        {/*========Desktop View======= */}
+          <DesktopBody>
+            <DImageC>
+              
+            <EditImage src={edit}
+                  className="input"
+                  name="image"
+                  type="url"
+                  placeholder="Image URL"
+                  onChange={e => {
+                    this.handleChange(e);
+                  }}
+                />
+                
+            </DImageC>
+          </DesktopBody>
       </div>
     );
   }
