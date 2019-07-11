@@ -11,8 +11,7 @@ Container,
   Mbody,
   SearchBtn,
   Searchbar,
-  Preview,
-  PPreview
+  Preview
 } from './bEStyle'
 import 'reset-css'
 import * as Icon from 'react-feather'
@@ -61,11 +60,11 @@ class BrowseEvents extends Component {
 
     return (
       <div>
+        <Mbody>
         <Header>
           <SearchBtn onClick={this.handleButtonClick}><Icon.Search/></SearchBtn>
           <Searchbar onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder=" Search" />
         </Header>
-        <Mbody>
           {eventDisplay}
         </Mbody>
       </div>
