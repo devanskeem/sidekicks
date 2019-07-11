@@ -100,3 +100,26 @@ Enzyme.configure({ adapter: new Adapter() })
       expect(wrapper.exists()).toBe(true);
     });
   });
+
+  describe('MyEvents Component', () => {
+    let component, node;
+
+    //Jest beforeEach()
+    beforeEach((() => component = shallow(<ProductHeaer/>) ))
+    beforeEach((() => node = component.find('h1') ))
+
+    it('has h1 tag', () => {
+      expect(node).toBeTruthy()
+    });
+    it('has a title class', () => {
+      expect(node.hasClass('title')).toBeTruthy()
+    });
+  });
+
+
+
+ 
+    
+
+
+ 
