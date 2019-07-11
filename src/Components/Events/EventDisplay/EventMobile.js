@@ -29,6 +29,7 @@ max-width: 95%;
 height: 230px;
 margin-top: 10px;
 box-shadow: 3px 3px 4px grey;
+border-radius: 4px;
 `
 export const Button = styled.button`
 color: white;

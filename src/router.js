@@ -3,7 +3,7 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Landing from './Components/Landing/Landing'
-import BrowseEvents from './Components/Events/BrowseEvents'
+import BrowseEvents from './Components/Events/BrowseEvents/BrowseEvents'
 import EventDisplay from './Components/Events/EventDisplay/EventDisplay'
 import Messages from './Components/Profile/Messages'
 import UserProfile from './Components/Profile/UserProfile'
