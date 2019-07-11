@@ -78,3 +78,8 @@ background-color: transparent
 outline: none; 
 color: white;
 `
+
+export const Logo1 = styled.img`
+width: 275px;
+height: 275x;
+`
