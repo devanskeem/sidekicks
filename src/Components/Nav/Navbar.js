@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import {  Button, MobileBody, NavBorder,P } from "./Styled";
+import {DesktopBody, Navigation} from './DesktopStyle'
+
 import * as Icon from "react-feather";
 
 function Navbar(props) {
@@ -42,6 +44,7 @@ function Navbar(props) {
             </Button>
         </NavBorder>
         </MobileBody>
+  
       </div>
     );
   }
