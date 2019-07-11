@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { updateUser, updateEvents, updateCurrEvent } from '../../redux/reducer'
+import { updateUser, updateEvents, updateCurrEvent } from '../../../redux/reducer'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import {
@@ -10,10 +10,12 @@ Container,
   Header,
   Mbody,
   SearchBtn,
-  Searchbar
-} from './EventStyleMobile'
-
+  Searchbar,
+  Preview,
+  PPreview
+} from './bEStyle'
 import 'reset-css'
+import * as Icon from 'react-feather'
 
 class BrowseEvents extends Component {
   constructor(props) {
@@ -46,7 +48,9 @@ class BrowseEvents extends Component {
     const eventDisplay = this.props.events.map((event, i) => {
       return (
         <Container onClick={() => this.toggleEventDisplay(event.event_id)} key={i}>
-          <Image src={event.image} />
+          <Preview>
+          <Image src={event.image}/>
+            </Preview>
           <Content>
             <Name>{event.name}</Name>
             <p>{event.location}</p>
@@ -58,8 +62,8 @@ class BrowseEvents extends Component {
     return (
       <div>
         <Header>
+          <SearchBtn onClick={this.handleButtonClick}><Icon.Search/></SearchBtn>
           <Searchbar onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder=" Search" />
-          <SearchBtn onClick={this.handleButtonClick}>Search</SearchBtn>
         </Header>
         <Mbody>
           {eventDisplay}

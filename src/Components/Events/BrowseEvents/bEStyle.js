@@ -1,4 +1,4 @@
-import {device} from '../mediaQueries'
+import {device} from '../../mediaQueries'
 import styled from 'styled-components'
 import 'reset-css'
 
@@ -13,28 +13,11 @@ overflow: auto;
 margin-top: 50px;
 @media ${device.mobileS}{
   background: whitesmoke;
-}
-@media ${device.tablet}{
+}@media ${device.tablet}{
   display: flex;
   flex-wrap: wrap;
 }
 `
-
-export const Mbody2 = styled.body`
-height: 100vh;
-width: 100%;
-font-family: "Sansita";
-display: flex;
-align-items: center;
-flex-direction: column;
-overflow: auto;
-@media ${device.mobileS}{
-  background: whitesmoke;
-}
-@media ${device.tablet}{
-  display: none;
-}`
-
 export const Container = styled.form`
 @media ${device.mobileS}{ 
   width: 80vw;
@@ -69,22 +52,44 @@ export const Image = styled.img`
 }  
 @media ${device.tablet}{
   border-radius: 0;
-  height: 75%;
+  height: 100%;
   min-width: 100%;
+  object-fit: none;
+  object-fit: none;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 `
 
 export const Content = styled.div`
+@media ${device.mobileS}{
   display: flex;
   width: 80%;
   flex-direction: column;
   justify-content: center;
   margin-right: 10px;
+}
+@media ${device.tablet}{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 63px;
+} 
 `
 export const Name = styled.h1`
+@media ${device.mobileS}{
   font-size: 22px;
   font-weight: bold;
   color: #5e0a0a;
+}@media ${device.tablet}{
+  margin-bottom: 5px;
+  font-size: 18px
+  color: black;
+  font-weight: 400;
+}
 `
 export const Header = styled.div`
   width: 100vw;
@@ -148,3 +153,15 @@ svg {
 }
 }
 `
+
+export const Preview = styled.div`
+@media ${device.tablet}{
+  width: 100%;
+  height:75%;
+  :hover {
+    background: grey;
+    opacity: 0.3;
+  }
+}
+`
+
