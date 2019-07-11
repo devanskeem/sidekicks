@@ -24,6 +24,7 @@ export class EventDisplay extends Component {
     }
 
     componentDidMount() {
+      if(this.props.currEvent === null) this.props.history.push('/browseevents')
       axios.get(`/users/byevent/${this.props.currEvent}`).then(res => {
         this.setState({
           usersAttending: res.data

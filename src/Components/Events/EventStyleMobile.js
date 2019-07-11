@@ -9,8 +9,8 @@ font-family: "Sansita";
 display: flex;
 align-items: center;
 flex-direction: column;
-overflow: auto;
-margin-top: 50px;
+overflow: scroll;
+margin: 50px 0;
 @media ${device.mobileS}{
   background: whitesmoke;
 }
@@ -18,26 +18,13 @@ margin-top: 50px;
   display: none;
 }`
 
-export const Mbody2 = styled.body`
-height: 100vh;
-width: 100%;
-font-family: "Sansita";
-display: flex;
-align-items: center;
-flex-direction: column;
-overflow: auto;
-@media ${device.mobileS}{
-  background: whitesmoke;
-}
-@media ${device.tablet}{
-  display: none;
-}`
+
 
 export const Container = styled.form` 
   width: 80vw;
-  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
   background: white;
-  overflow: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
