@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getUser } from "react-redux";
 import io from "socket.io-client";
 import * as Icon from "react-feather";
-import { MobileBody, H1, ImageContainer, ImageBody, InputBody, InputDiv, H3, Input, InputDiv2} from "./MobileCreate";
+import { MobileBody, H1, ImageContainer, ImageBody, InputBody, InputDiv, H3, Input, InputDiv2, CreateBtn} from "./MobileCreate";
 import {DesktopBody, DImageC,EditImage} from './DesktopStyle'
 import edit from '../../../Assets/Edit_Event.png'
 
@@ -75,9 +75,6 @@ export class CreateEvent extends Component {
             </ImageBody>
             <H1>Start a new Event</H1>
             <p>Find people<br/>and do your thing &mdash; together.</p>
-            <button className="create-btn" onClick={this.handleAddEvent}>
-            Create
-          </button>
           </ImageContainer>
           <InputBody>
           <InputDiv>
@@ -148,6 +145,10 @@ export class CreateEvent extends Component {
         
           </InputDiv2>
           </InputBody>
+
+        <CreateBtn onClick={this.handleAddEvent}>
+            Create
+        </CreateBtn>
         </MobileBody>
 
         {/*========Desktop View======= */}

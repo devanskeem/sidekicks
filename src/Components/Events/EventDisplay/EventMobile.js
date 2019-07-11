@@ -68,6 +68,7 @@ justify-content: center;
 align-items: center;
 height: 55px;
 width: 55px;
+font-size: 10px;
 `
 
 export const ImgIcon = styled.img`
