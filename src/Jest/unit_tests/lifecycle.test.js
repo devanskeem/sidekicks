@@ -7,3 +7,18 @@ it('calls componentDidMount', () => {
     const wrapper = shallow(<App />)
     expect(App.prototype.componentDidMount.mock.calls.length).toBe(1)
   })
+
+  it('should call componentDidMount once', () => {
+    componentDidMountSpy = spyOn(BrowseEvent.prototype, 'componentDidMount');
+    component = shallow(<BrowseEvents/>)
+    expect(componentDidMOuntSpy).toHaveBeenCalledTimes(1);
+
+    it('should populate the state', () => {
+      component = shallow(<BrowseEvents/>)
+      expect(compoinent.state().events.lenght).toEqual(5);
+    });
+  });
+
+  it('should have a working method called handleButtonClick(firstEvent)');
+
+  expect(component.state().selectEvent).toEqual(eventData[0]);
