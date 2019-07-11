@@ -142,13 +142,24 @@ export class CreateEvent extends Component {
               this.handleChange(e);
             }}
           />
-        
           </InputDiv2>
+          <InputDiv2>
+          <H3>Image URL</H3>
+          <Input
+            className="input"
+            type="text"
+            name="image"
+            placeholder="Image URL"
+            onChange={e => {
+              this.handleChange(e);
+            }}
+          />
+          </InputDiv2>
+            <CreateBtn onClick={this.handleAddEvent}>
+                Create
+            </CreateBtn>
           </InputBody>
 
-        <CreateBtn onClick={this.handleAddEvent}>
-            Create
-        </CreateBtn>
         </MobileBody>
 
         {/*========Desktop View======= */}
