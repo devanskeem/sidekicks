@@ -112,7 +112,8 @@ export const P = styled.p`
 text-align: left;
 display: flex;
 justify-content: center;
-margin-bottom: 5px;
+align-items:center;
+margin: 5px;
 `
 
 export const Input = styled.input`
@@ -139,4 +140,9 @@ border: 1px solid lightgrey;
 
 export const Content = styled.div`
 width: 80%;
+`
+
+export const BottomBtns = styled.div`
+position: relative;
+bottom: 55px;
 `

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {Image, MBody, EventBorder, Button, P, ButtonBorder, Title, UserIcon, ImgIcon, Users, Content, Name, Input, TextArea, ImgIconSm, UserIconSm, PCenter} from './EventMobile'
+import {Image, MBody, EventBorder, Button, P, ButtonBorder, Title, UserIcon, ImgIcon, Users, Content, Name, Input, TextArea, ImgIconSm, UserIconSm, PCenter, BottomBtns} from './EventMobile'
 import 'reset-css'
 import * as Icon from 'react-feather'
 
@@ -20,8 +20,18 @@ export class EventDisplay extends Component {
         description: '',
         image: '',
         location: '',
-        price: null
+        cost: null
       };
+    }
+
+    handleChange = (e) => {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+
+    selectAll = () => {
+      document.getElementById("imgUrl").select()
     }
 
     componentDidMount() {
@@ -53,12 +63,27 @@ export class EventDisplay extends Component {
       this.props.history.push('/browseevents')
     }
 
+    updateEvent = () => {
+      const {title, description, cost, image, location} = this.state
+      const id = this.props.currEvent
+      axios.put('/events/update', {
+        id,
+        title, 
+        description,
+        cost,
+        image,
+        location
+      }).then(this.props.history.push('/browseevents'))
+    }
+
+    deleteEvent = () => {
+      axios.delete(`/events/delete/${this.props.currEvent}`)
+      .then(this.props.history.push('/browseevents'))
+    }
+    
   render() {  
     const isHost = this.props.user.user_id === this.state.host.user_id
-    if (this.props.user.user_id === this.state.host.user_id) {
-      console.log('hosting')
-    }
-    const {title, description, host, cost, image, usersAttending} = this.state
+    const {title, description, host, cost, image, usersAttending, location} = this.state
     const userDisplay = usersAttending.slice(0,8).map((element, index) => {
       return(
         <UserIcon >
@@ -78,15 +103,15 @@ export class EventDisplay extends Component {
             <Image src={image} alt=""/>
           </EventBorder>
           <Content>
-            <P>Image URL: <Input defaultValue={image}/></P>
-            <P>Title: <Input defaultValue={title}/>    </P>
-            
-            <P>Cost: <Input defaultValue={`$ ${cost}`}/> </P>
-            
+            <P>Image URL: <Input id='imgUrl' name='image' defaultValue={image} onClick={this.selectAll} onChange={(e) => this.handleChange(e)} /></P>
+            <P>Title: <Input name='title' defaultValue={title} onChange={(e) => this.handleChange(e)}/></P>
+            <P>Cost: <Input name='cost' defaultValue={`$ ${cost}`} onChange={(e) => this.handleChange(e)}/></P>
+            <P>Location: <Input name='location' defaultValue={location} onChange={(e) => this.handleChange(e)}/></P>
             <P>About: </P>
-            <TextArea defaultValue={description}/>
+            <TextArea name='description' defaultValue={description} onChange={(e) => this.handleChange(e)}/>
+            <Button onClick={this.updateEvent}>Save Event</Button>
+            <Button style={{background: 'red'}} onClick={this.deleteEvent}>Delete</Button>
           </Content>
-
         <Users>
           {userDisplay}
         </Users>
@@ -103,6 +128,8 @@ export class EventDisplay extends Component {
           </UserIconSm>
         </Title>
         <PCenter>{description}</PCenter>
+        <P>Cost: ${cost}</P>
+        <P>Location: {location}</P>
         </EventBorder>
         <ButtonBorder>
         <Button onClick={this.handleJoin}> Join and RSVP</Button>

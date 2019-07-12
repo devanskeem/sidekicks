@@ -21,13 +21,18 @@ class BrowseEvents extends Component {
     super(props)
 
     this.state = {
-      event_id: null
+      event_id: null,
+      events: []
     }
   }
 
   componentDidMount() {
     axios.get('/events/all').then(res => {
-      this.props.updateEvents(res.data)
+      const shuffled = res.data.sort(() => Math.random() - 0.5);
+      this.props.updateEvents(shuffled)
+      this.setState({
+        events: shuffled
+      })
       this.forceUpdate()
     })
 
@@ -40,11 +45,25 @@ class BrowseEvents extends Component {
     this.props.updateCurrEvent(id)
     this.props.history.push('/eventdisplay')
   };
+  selectAll = () => {
+    document.getElementById("search").select()
+  }
+  handleSearch = (e) => {
+    const filtered = this.props.events.filter((event) => {      return (
+        event.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        event.description.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        event.location.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    })
+    this.setState({
+      events: filtered
+    })
 
+  }
 
 
   render() {
-    const eventDisplay = this.props.events.map((event, i) => {
+    const eventDisplay = this.state.events.map((event, i) => {
       return (
         <Container onClick={() => this.toggleEventDisplay(event.event_id)} key={i}>
           <Preview>
@@ -62,8 +81,8 @@ class BrowseEvents extends Component {
       <div>
         <Mbody>
         <Header>
-          <SearchBtn onClick={this.handleButtonClick}><Icon.Search/></SearchBtn>
-          <Searchbar onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} placeholder=" Search" />
+          <SearchBtn><Icon.Search/></SearchBtn>
+          <Searchbar id='search' onClick={this.selectAll} onChange={e => this.handleSearch(e)} placeholder=" Search" />
         </Header>
           {eventDisplay}
         </Mbody>
@@ -81,3 +100,4 @@ function mapStateToProps(reduxState) {
 const mapDispatchToProps = { updateUser, updateEvents, updateCurrEvent }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BrowseEvents)
+

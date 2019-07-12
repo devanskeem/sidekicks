@@ -80,22 +80,23 @@ module.exports = {
         res.status(200).send(event)
     
     },
-    updateEvent: (req, res) =>{
+    updateEvent: async (req, res) =>{
         const db = req.app.get('db');
-        const { id } = req.params;
-        const event = db.get_event_by_id({id})
-        const newEvent = {...event, ...req.body}
-
-        db.update_event({newEvent, id})
-            .then(() => res.status(200).send())
-            .catch(err => {
-                res.status(500).send();
-            });
+        const { id, title, description, location, cost, image } = req.body;
+        const event = await db.update_event({
+            id,
+            title,
+            description,
+            location,
+            cost,
+            image
+        })
+        res.sendStatus(200).send(event)
     },
     deleteEvent: (req, res) => {
         const db = req.app.get('db');
-        const { id } = req.params;
-
+        let { id } = req.params;
+        id = parseInt(id)
         db.delete_event([id])
             .then(() => res.status(200).send())
             .catch(() => res.status(500).send());
