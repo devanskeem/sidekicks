@@ -60,9 +60,9 @@ class MyEvents extends Component {
     }
     return (
       <>
-        <Header>
+        {/* <Header>
           Events I'm Attending
-        </Header>
+        </Header> */}
         <Mbody>
           {joinedEventDisplay}
         </Mbody>

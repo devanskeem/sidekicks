@@ -4,7 +4,7 @@ import {updateCurrEvent} from '../../redux/reducer'
 import axios from 'axios'
 import { Mbody, ProfileImg, Header, Logout } from './Styled'
 
-import {Container, Image, Name, Content} from '../Events/EventStyleMobile'
+import {Container, Image, Name, Content} from './ProfileStyle'
 export class UserProfile extends Component {
   constructor(props) {
     super(props)
