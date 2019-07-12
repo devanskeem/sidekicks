@@ -7,7 +7,10 @@ import {
   Image,
   Content,
   Name,
-  Mbody2
+  Mbody,
+  Header,
+  SearchBtn,
+  Searchbar
 } from './EventStyleMobile'
 
 class MyEvents extends Component {
@@ -18,7 +21,6 @@ class MyEvents extends Component {
       joinedEvents: []
     };
   }
-// this.props.user.user_idrs
 
   componentDidMount() {
     axios.get(`/events/user/${3}`).then(res => {
@@ -27,11 +29,7 @@ class MyEvents extends Component {
       })
     });
 
-    // axios.get(`/events/host/${this.props.user.user_id}`).then(res => {
-    //   this.setState({
-    //     hostedEvents: res.data
-    //   })
-    // })
+
   }
 
   handleInputChange = e => {
@@ -49,7 +47,7 @@ class MyEvents extends Component {
         <h1>No Events To Display</h1>
       </div>
     )
-    if (this.state.joinedEvents) {
+    if (this.state.joinedEvents !== []) {
       joinedEventDisplay = this.state.joinedEvents.map((event, i) => {
         return (
           <Container onClick={() => this.toggleEventDisplay(event.event_id)} key={i}>
@@ -63,11 +61,14 @@ class MyEvents extends Component {
       })
     }
     return (
-      <div>
-        <Mbody2>
+      <>
+        <Header>
+          Events I'm Attending
+        </Header>
+        <Mbody>
           {joinedEventDisplay}
-        </Mbody2>
-      </div>
+        </Mbody>
+      </>
     )
   }
 

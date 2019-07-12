@@ -41,6 +41,8 @@ font-weight: 500
 
 export const MBody2 = styled.div`
 @media ${device.mobileS}{
+  position: fixed;
+  bottom: 5px;
   width: 100%;
   height: 290px;
   display: flex;

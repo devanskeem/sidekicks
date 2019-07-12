@@ -74,3 +74,13 @@ width: 100%;
 height: 30px;
 outline: none;
 `
+
+export const CreateBtn = styled.button`
+color: white;
+background: #fd5f00
+border: none;
+border-radius: 3px;
+height: 30px;
+width: 70px;
+font-weight: 600;
+`
