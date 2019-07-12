@@ -10,12 +10,9 @@ export const Mbody = styled.body`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: whitesmoke;
-<<<<<<< HEAD
+  background: whitesmoke
   margin-bottom: 50px;
-=======
   overflow:auto;
->>>>>>> master
 }`;
 
 export const Container = styled.div`
