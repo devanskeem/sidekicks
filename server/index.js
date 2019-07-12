@@ -81,9 +81,8 @@ app.get('/events/all', event_ctrl.getAllEvents)
 app.get('/event/byid/:id', event_ctrl.getEventById)
 app.get('/events/host/:id', event_ctrl.getEventsByHost)
 app.get('/events/user/:id', event_ctrl.getEventsByUser)
-app.put('/events/update/:id', event_ctrl.updateEvent)
+app.put('/events/update', event_ctrl.updateEvent)
 // app.get('/events/user/:user_id', event_ctrl.getEventsByUser)
-app.put('/events/update/:id', event_ctrl.updateEvent) 
 app.delete('/events/delete/:id', event_ctrl.deleteEvent) //response: status code
 app.post('/events/add', event_ctrl.addEvent) //response: newly created {event}
 app.post('/events/joinevent/:id', event_ctrl.joinEvent)

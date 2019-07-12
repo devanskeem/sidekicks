@@ -39,4 +39,5 @@ border-radius: 3px;
 height: 25px;
 width: 60;
 font-weight: 600;
+margin: 5px;
 `

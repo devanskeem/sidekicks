@@ -4,7 +4,6 @@ const initialState = {
     user: {},
     events:[],
     currEvent: null
-
 }
 
 const UPDATE_USER = "UPDATE_USER";

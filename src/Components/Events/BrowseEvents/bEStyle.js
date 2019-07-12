@@ -11,6 +11,7 @@ export const Mbody = styled.body`
   flex-direction: column;
   align-items: center;
   background: whitesmoke;
+  margin-bottom: 50px;
   overflow:auto;
 }`;
 
@@ -30,7 +31,7 @@ width: 100%;
 height: 30px;
 display: flex;
 align-items: center;
-justify-content: center;`;
+`
 
 export const SearchBtn = styled.button`
 border: none;
@@ -47,6 +48,7 @@ color: red;
 }
 `;
 export const Searchbar = styled.input`
+width: 90%;
 border: none;
 outline: none;
 background: whitesmoke;
