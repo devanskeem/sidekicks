@@ -10,6 +10,10 @@ import {
   Mbody,
   Header
 } from './myEventStyle'
+// <<<<<<< HEAD
+// } from './EventStyleMobile'
+// =======
+// >>>>>>> master
 
 class MyEvents extends Component {
 

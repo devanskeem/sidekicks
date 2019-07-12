@@ -8,6 +8,8 @@ height: 100vh
 background: whitesmoke;
 display: flex;
 height: 100vh;
+margin-bottom: 50px;
+overflow: auto;
 align-items: center;
 flex-direction: column
 `

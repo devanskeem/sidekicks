@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Body, MBody1,MP, MBody2, MSignUp, MP2, MLoginBtn, A, Logo1 } from "./mobileStyle.";
+import { Body, MBody1, MBody2, MSignUp, MP2, MLoginBtn, A, Logo1 } from "./mobileStyle.";
 import {DBody, Hero, DBar, TitleDiv, Phrase, JoinDiv, JoinBtn, Arrow,Footer,DBarTitle,DBar2, DBar3, Img, H2, P, Logo, DesktopA} from './desktopStyle'
 import arrow from '../../Assets/Arrow.png'
 import * as Icon from 'react-feather'
