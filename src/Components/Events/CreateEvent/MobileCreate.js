@@ -24,15 +24,13 @@ font-size: 20px
 font-weight: 800;
 `
 
-export const ImageContainer = styled.div`
-background: grey;
+
+export const ImageContainer = styled.img`
 width: 90%;
 height: 200px;
-display: flex;
-align-items:center;
-flex-direction: column;
-justify-content: center;
-margin-top: 15px;
+box-shadow: 3px 3px 4px grey;
+margin: 15px 0;
+border-radius: 4px;
 `
 export const ImageBody = styled.div`
 svg {
@@ -81,6 +79,7 @@ background: #fd5f00
 border: none;
 border-radius: 3px;
 height: 30px;
-width: 70px;
+width: 40%;
 font-weight: 600;
+margin: 15px;
 `

@@ -19,7 +19,7 @@ export class CreateEvent extends Component {
       total_people: "",
       cost: "",
       location: "",
-      image: ""
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGiBQPRSoro5g493sR8M-kBhIq4Jz-NdOl4fBx8jhg6hNvPQt_bQ"
     };
   }
 
@@ -58,23 +58,7 @@ export class CreateEvent extends Component {
     return (
       <div>
         <MobileBody>
-          <ImageContainer>
-            <ImageBody>
-              <Icon.Image>
-                <input
-                  className="input"
-                  name="image"
-                  type="url"
-                  placeholder="Image URL"
-                  onChange={e => {
-                    this.handleChange(e);
-                  }}
-                />
-              </Icon.Image>
-            </ImageBody>
-            <H1>Start a new Event</H1>
-            <p>Find people<br/>and do your thing &mdash; together.</p>
-          </ImageContainer>
+          <ImageContainer src={this.state.image}/>
           <InputBody>
           <InputDiv>
           <H3>Event Name</H3>
