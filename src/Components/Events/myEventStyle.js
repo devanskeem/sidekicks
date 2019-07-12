@@ -10,6 +10,7 @@ export const Mbody = styled.body`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
   background: whitesmoke;
 }`;
 
