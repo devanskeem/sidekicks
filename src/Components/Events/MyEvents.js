@@ -9,7 +9,11 @@ import {
   Name,
   Mbody,
   Header
-} from './EventStyleMobile'
+} from './myEventStyle'
+// <<<<<<< HEAD
+// } from './EventStyleMobile'
+// =======
+// >>>>>>> master
 
 class MyEvents extends Component {
 
@@ -60,9 +64,9 @@ class MyEvents extends Component {
     }
     return (
       <>
-        <Header>
+        {/* <Header>
           Events I'm Attending
-        </Header>
+        </Header> */}
         <Mbody>
           {joinedEventDisplay}
         </Mbody>
