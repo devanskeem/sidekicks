@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUser } from "react-redux";
-import io from "socket.io-client";
 import * as Icon from "react-feather";
 import { MobileBody, H1, ImageContainer, ImageBody, InputBody, InputDiv, H3, Input, InputDiv2, CreateBtn} from "./MobileCreate";
 import {DesktopBody, DImageC,EditImage} from './DesktopStyle'

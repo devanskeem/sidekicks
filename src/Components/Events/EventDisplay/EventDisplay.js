@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {Image, MBody, EventBorder, Button, P, ButtonBorder, Title, UserIcon, ImgIcon, Users, Content, Name, Input, TextArea, ImgIconSm, UserIconSm, PCenter, BottomBtns} from './EventMobile'
+import {Image, MBody, EventBorder, Button, P, ButtonBorder, Title, UserIcon, ImgIcon, Users, Content, Name, Input, TextArea, ImgIconSm, UserIconSm, PCenter} from './EventMobile'
 import 'reset-css'
 import * as Icon from 'react-feather'
 
