@@ -30,12 +30,12 @@ function Navbar(props) {
               </Link>
               <P>create</P>
             </Button>
-            <Button>
+            {/* <Button>
               <Link to="/messages">
                 <Icon.MessageSquare />
               </Link>
               <P>messages</P>
-            </Button>
+            </Button> */}
             <Button>
               <Link to="/userprofile">
                 <Icon.User />
