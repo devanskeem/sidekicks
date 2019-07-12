@@ -2,6 +2,7 @@ import {device} from '../mediaQueries'
 import styled from 'styled-components'
 import 'reset-css'
 
+
 export const Mbody = styled.body`
 height: 100vh;
 width: 100%;
@@ -11,33 +12,28 @@ align-items: center;
 flex-direction: column;
 overflow: scroll;
 margin: 50px 0;
-}`
-
-
-export const Container = styled.form`
-@media ${device.mobileS}{ 
-  width: 80vw;
-  min-height: 120px;
-  max-height: 120px;
-  background: white;
+@media ${device.mobileS}{
+  width: 100%;
+  height: 100%;
+  font-family: 'Sansita';
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px solid #fd5f00;
-  box-shadow: 1px 1px 2px 1px rgba(0,0,0, .2)
-}
-  @media ${device.tablet}{
-   display: flex;
-   flex-direction: column;
-   width: 30%;
-   height: 250px;
-   border-radius: 0
-   border: none;
-   overflow: visible;
-  }
+  background: whitesmoke;
+}`;
+
+
+export const Container = styled.div`
+width: 85%;
+height: 300px;
+margin-bottom: 10px;
+background: white;
+box-shadow: 1px 1px 2px 1px rgba(0,0,0, .2);
+display: flex;
+flex-direction: column;
+align-items: center;
 `
+
 export const Image = styled.img`
 width: 90%;
 height: 200px;
@@ -73,6 +69,5 @@ export const Header = styled.div`
   @media ${device.tablet}{
     background: whitesmoke;
     border: none;
-
   }
 `

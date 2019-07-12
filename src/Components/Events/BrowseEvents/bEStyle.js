@@ -14,11 +14,14 @@ export const Mbody = styled.body`
 }`;
 
 export const Container = styled.div`
-width: 95%;
-height: 275px;
+width: 85%;
+height: 300px;
 margin-bottom: 10px;
 background: white;
 box-shadow: 1px 1px 2px 1px rgba(0,0,0, .2);
+display: flex;
+flex-direction: column;
+align-items: center;
 `
 
 export const Header = styled.div`
@@ -48,16 +51,22 @@ outline: none;
 background: whitesmoke;
 `;
 export const Image = styled.img`
-width: 95%;
+width: 90%;
 height: 200px;
 margin-top: 10px;
 box-shadow: 3px 3px 4px grey;
 border-radius: 4px;
-@media ${device.mobileM}{
-  
+@media ${device.mobileM}{  
 }`;
 
-export const Name = styled.p``;
+export const Name = styled.p`
+font-size: 18px;
+`;
 export const Preview = styled.div``;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+width: 100%;
+height: 80px;
+display: flex; 
+justify-content: center;
+flex-direction: column;`;
