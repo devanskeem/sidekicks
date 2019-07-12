@@ -1,4 +1,4 @@
-import { device } from "../../mediaQueries";
+import { device } from '../mediaQueries';
 import styled from "styled-components";
 import "reset-css";
 
@@ -11,8 +11,6 @@ export const Mbody = styled.body`
   flex-direction: column;
   align-items: center;
   background: whitesmoke;
-  margin-bottom: 50px;
-  overflow:auto;
 }`;
 
 export const Container = styled.div`
@@ -31,28 +29,8 @@ width: 100%;
 height: 30px;
 display: flex;
 align-items: center;
-`
+justify-content: center;`;
 
-export const SearchBtn = styled.button`
-border: none;
-outline: none;
-height: 28px;
-font-weight: 700;
-background: transparent;
-svg {
-color: grey;
-:hover{
-color: red;
-    }
-  }
-}
-`;
-export const Searchbar = styled.input`
-width: 90%;
-border: none;
-outline: none;
-background: whitesmoke;
-`;
 export const Image = styled.img`
 width: 90%;
 height: 200px;

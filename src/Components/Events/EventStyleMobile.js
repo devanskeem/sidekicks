@@ -11,15 +11,7 @@ align-items: center;
 flex-direction: column;
 overflow: scroll;
 margin: 50px 0;
-@media ${device.mobileS}{
-  background: whitesmoke;
-}
-@media ${device.tablet}{
-  display: flex;
-  flex-wrap: wrap;
-}
-`
-
+}`
 
 
 export const Container = styled.form`
@@ -47,31 +39,26 @@ export const Container = styled.form`
   }
 `
 export const Image = styled.img`
-@media ${device.mobileS}{
-  object-fit: cover;
-  border-radius: 4px 0 0 4px;
-  height: 100%;
-  min-width: 25%;
-  max-width: 25%;
-}  
-@media ${device.tablet}{
-  border-radius: 0;
-  height: 75%;
-  min-width: 100%;
-}
-`
+width: 90%;
+height: 200px;
+margin-top: 10px;
+box-shadow: 3px 3px 4px grey;
+border-radius: 4px;
+@media ${device.mobileM}{
+ 
+}`;
 
 export const Content = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
+  height: 80px
   flex-direction: column;
   justify-content: center;
-  margin-right: 10px;
 `
 export const Name = styled.h1`
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
-  color: #5e0a0a;
+
 `
 export const Header = styled.div`
   width: 100vw;
@@ -88,50 +75,4 @@ export const Header = styled.div`
     border: none;
 
   }
-`
-
-export const Searchbar = styled.input`
-width: 60%;
-border: none;
-font-size: 22px;
-height: 27px;
-background: lightgrey;
-border-radius: 5px;
-width: 360px;
-::placeholder{
-  color: grey;
-}
-@media ${device.tablet}{
-  border: none;
-  outline: none;
-  background: whitesmoke;
-}
-`
-
-export const SearchBtn = styled.button`
-@media ${device.mobileS}{
-border: none;
-outline: none;
-height: 28px;
-font-weight: 700;
-background: transparent;
-svg {
-  color: grey;
-  :hover{
-    color: red;
-  }
-}
-}
-@media ${device.tablet}{
-  border: none;
-background: transparent;
-outline: none;
-svg {
-  dislay: flex;
-  color: grey;
-  :hover {
-    color: red;
-  }
-}
-}
 `
