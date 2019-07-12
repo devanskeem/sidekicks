@@ -8,10 +8,8 @@ import {
   Content,
   Name,
   Mbody,
-  Header,
-  SearchBtn,
-  Searchbar
-} from './EventStyleMobile'
+  Header
+} from './myEventStyle'
 
 class MyEvents extends Component {
 

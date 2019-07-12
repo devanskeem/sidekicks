@@ -11,6 +11,7 @@ export const Mbody = styled.body`
   flex-direction: column;
   align-items: center;
   background: whitesmoke;
+  overflow:auto;
 }`;
 
 export const Container = styled.div`
