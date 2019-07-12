@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {updateCurrEvent} from '../../redux/reducer'
 import axios from 'axios'
 import { Mbody, ProfileImg, Header, Logout } from './Styled'
+
 import {Container, Image, Name, Content} from '../Events/EventStyleMobile'
 export class UserProfile extends Component {
   constructor(props) {
@@ -19,6 +21,12 @@ export class UserProfile extends Component {
       })
     })
   }
+
+  toggleEventDisplay = (id) => {
+    this.props.updateCurrEvent(id)
+    this.props.history.push('/eventdisplay')
+  };
+
   render() {
     const eventDisplay = this.state.hostedEvents.map((event, i) => {
       return (
@@ -50,5 +58,6 @@ export class UserProfile extends Component {
 function mapStateToProps(reduxState) {
   return reduxState
 }
+const mapDispatchToProps = {updateCurrEvent}
 
-export default connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)
