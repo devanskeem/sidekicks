@@ -4,7 +4,7 @@ import {updateCurrEvent} from '../../redux/reducer'
 import axios from 'axios'
 import { Mbody, ProfileImg, Header, Logout } from './Styled'
 
-import {Container, Image, Name, Content} from './ProfileStyle'
+import {Container, Image, Name, Content} from '../Events/BrowseEvents/bEStyle'
 export class UserProfile extends Component {
   constructor(props) {
     super(props)
@@ -28,6 +28,7 @@ export class UserProfile extends Component {
   };
 
   render() {
+    console.log('process.env', process.env)
     const eventDisplay = this.state.hostedEvents.map((event, i) => {
       return (
         <Container onClick={() => this.toggleEventDisplay(event.event_id)} key={i}>
@@ -46,7 +47,7 @@ export class UserProfile extends Component {
         </Header>
         <h1>{this.props.user.display_name}</h1>
         <ProfileImg src={this.props.user.image} alt="" />
-        <a href="http://localhost:3333/auth/logout"><Logout>Logout</Logout></a>
+        <a href={process.env.REACT_APP_LOGOUT}><Logout>Logout</Logout></a>
         Events I'm Hosting
         {eventDisplay}
       </Mbody>

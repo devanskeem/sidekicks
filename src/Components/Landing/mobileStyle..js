@@ -1,4 +1,4 @@
-import {device} from '../mediaQueries'
+import { device } from '../mediaQueries'
 import styled from 'styled-components'
 import Hiking from '../../Assets/Hiking.jpg'
 import 'reset-css'
@@ -52,18 +52,23 @@ export const MBody2 = styled.div`
 }
 `
 
-export const MSignUp = styled.button`
-@media ${device.mobileS}{
+export const MSignUp = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
   background: #fd5f00;
-    width: 80%;
-    font-size: 16px;
-    height: 30px;
-    text-transform: uppercase;
-    border: none;
-    margin: 140px 0 10px 0;
-}`
+  width: 80%;
+  font-size: 16px;
+  height: 30px;
+  text-transform: uppercase;
+  border: none;
+  margin: 140px 0 10px 0;
+`
 
 export const A = styled.a`
+font-size: 16px;
 text-decoration: none;
 color: white;
 `

@@ -8,12 +8,10 @@ import {
   Content,
   Name,
   Mbody,
-  Header
+  Header,
+  MyEventsList
 } from './myEventStyle'
-// <<<<<<< HEAD
-// } from './EventStyleMobile'
-// =======
-// >>>>>>> master
+
 
 class MyEvents extends Component {
 
@@ -64,11 +62,13 @@ class MyEvents extends Component {
     }
     return (
       <>
-        {/* <Header>
+        <Header>
           Events I'm Attending
-        </Header> */}
+        </Header>
         <Mbody>
-          {joinedEventDisplay}
+          <MyEventsList>
+            {joinedEventDisplay}
+          </MyEventsList>
         </Mbody>
       </>
     )

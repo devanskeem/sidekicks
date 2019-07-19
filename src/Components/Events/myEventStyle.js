@@ -3,19 +3,38 @@ import styled from "styled-components";
 import "reset-css";
 
 export const Mbody = styled.body`
-@media ${device.mobileS}{
-  width: 100%;
-  height: 100%;
-  font-family: 'Sansita';
+margin-bottom: 50px;
+width: 100%;
+height: 100%;
+font-family: 'Sansita';
+background: whitesmoke
+overflow:auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+;`
+
+export const MyEventsList = styled.div`
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
-  background: whitesmoke;
-}`;
+  @media (min-width: 600px){
+    grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow:auto;
+  }
+@media(min-width: 900px){
+  grid-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow:auto;
+}
+`
 
 export const Container = styled.div`
-width: 85%;
+width: 280px;
 height: 300px;
 margin-bottom: 10px;
 background: white;

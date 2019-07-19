@@ -10,7 +10,9 @@ justify-content: space-between;
 
 }
 @media ${device.tablet}{
-    display: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 `
 
 

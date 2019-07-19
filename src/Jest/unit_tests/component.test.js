@@ -4,7 +4,6 @@ import CreateEvent from './../../Components/Events/CreateEvent/CreateEvent'
 import  EventMobile from './../../Components/Events/EventDisplay/EventMobile'
 import BrowseEvent from './../../Components/Events/BrowseEvents'
 import Navbar from './../../Components/Nav/Navbar'
-import EditProfile from './../../Components/Profile/EditProfile'
 import Messages from './../../Components/Profile/Messages'
 
 import Adapter from 'enzyme-adapter-react-16'
@@ -70,15 +69,6 @@ Enzyme.configure({ adapter: new Adapter() })
   describe("User Profile component", () => {
     test("renders", () => {
       const wrapper = shallow(<UserProfile />);
-
-      expect(wrapper.exists()).toBe(true);
-    });
-  });
-
-  //UserProfile component is rendering
-  describe("Edit Profile component", () => {
-    test("renders", () => {
-      const wrapper = shallow(<EditProfile />);
 
       expect(wrapper.exists()).toBe(true);
     });

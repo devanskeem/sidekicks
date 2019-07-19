@@ -16,9 +16,9 @@ export default class App extends Component {
           {/* <MP>social event organizer</MP> */}
         </MBody1>
         <MBody2>
-          <MSignUp > <A  href="http://localhost:3333/auth/google">Sign up</A> </MSignUp>
+        <MSignUp href={process.env.REACT_APP_LOGIN}>Sign up</MSignUp> 
           <MP2>
-            Already a member?<MLoginBtn> <A href="http://localhost:3333/auth/google">Log in</A></MLoginBtn>
+            Already a member?<MLoginBtn> <A href={process.env.REACT_APP_LOGIN}>Log in</A></MLoginBtn>
           </MP2>
         </MBody2>
       </Body>
@@ -28,10 +28,10 @@ export default class App extends Component {
         <Hero>
           <TitleDiv>
               <Logo src={hero}></Logo>
-            <Phrase>social event organizer</Phrase>
+            <Phrase>social event organizer </Phrase>
           </TitleDiv>
           <JoinDiv>
-          <DesktopA  href="http://localhost:3333/auth/google"> <JoinBtn>Join Now</JoinBtn></DesktopA>
+          <DesktopA  href={process.env.REACT_APP_LOGIN}> <JoinBtn>Join Now</JoinBtn></DesktopA>
             <Arrow src={arrow}/>
           </JoinDiv>
         </Hero>

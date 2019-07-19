@@ -1,4 +1,4 @@
-import {device} from '../../mediaQueries'
+import { device } from '../../mediaQueries'
 import styled from 'styled-components'
 import 'reset-css'
 
@@ -7,16 +7,15 @@ export const MBody = styled.body`
 width: 100%;
 height: 100vh;
 font-family: 'Sansita';
-@media ${device.mobileS}{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-@media ${device.tablet}{
-  display: none;
-}
-
+display: flex
+align-items: center;
+flex-direction: column;
 `
+export const Content = styled.div`
+  width: 100%;
+  max-width: 500px;
+`
+
 export const EventBorder = styled.div`
 width: 95%;
 margin-top: 5px;
@@ -138,9 +137,6 @@ font-size: 16px;
 border: 1px solid lightgrey;
 `
 
-export const Content = styled.div`
-width: 80%;
-`
 
 export const BottomBtns = styled.div`
 position: relative;
